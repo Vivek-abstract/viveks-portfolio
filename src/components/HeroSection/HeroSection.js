@@ -10,7 +10,8 @@ export default function HeroSection() {
                     alt="Profile photo" />
             </div>
             <div className="description-container">
-                <h3 className="description">Hello! I'm Vivek, a <br />Software developer based in Mumbai</h3>
+                <h1 className='hello'>Hello!</h1>
+                <h3 className="description">I'm Vivek, a <br />Software developer based in Mumbai</h3>
             </div>
         </div>
     );

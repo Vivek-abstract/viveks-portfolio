@@ -31,6 +31,21 @@
     margin-right: 3em;
 }
 
+.btn {
+    font-size: 1.3rem;
+    border: 1px solid #048961;
+    color: #048961;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #048961;
+}
+
+.product-title{
+    color: #048961;
+}
+
 @media screen and (max-width: 990px) {
     .amaron-container {
         flex-wrap: wrap;
@@ -60,5 +75,10 @@
     .product-image {
         max-width: 50%;
         margin-right: 0;
+    }
+
+
+    .btn {
+        font-size: 1.1rem;
     }
 }

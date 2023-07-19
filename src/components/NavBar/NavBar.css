@@ -1,18 +1,19 @@
-.navbar
-{
+.navbar {
     padding-left: 15px;
-    
-    @media (min-width: 576px) { 
+
+    @media (min-width: 576px) {
         padding-left: 75px;
     }
 }
 
-.nav-item
-{
+.nav-item {
     margin-right: 30px;
 }
 
-.last-margin
-{
+.last-margin {
     margin-right: 100px;
+}
+
+.active {
+    color: rgb(129, 65, 255) !important;
 }

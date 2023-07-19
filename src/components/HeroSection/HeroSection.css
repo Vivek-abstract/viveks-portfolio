@@ -17,7 +17,12 @@
     font-style: sans-serif;
     font-size: 3rem;
     padding-left: 80px;
-    margin-top: 40px;
+}
+
+.hello {
+    color: rgb(129, 65, 255);
+    font-size: 6rem;
+    padding-left: 80px;
 }
 
 @media screen and (max-width:990px) {
@@ -35,5 +40,12 @@
 
     .description-container {
         text-align: center;
+    }
+
+    .hello{
+        font-size: 3.5rem;
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-top: 40px;
     }
 }

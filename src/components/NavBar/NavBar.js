@@ -1,5 +1,6 @@
 import './NavBar.css';
 import { useRef } from 'react';
+import { Link } from "react-router-dom";
 
 export default function NavBar(props) {
 
@@ -20,7 +21,7 @@ export default function NavBar(props) {
                 <div className="collapse navbar-collapse ms-auto justify-content-end" id="navbarSupportedContent">
                     <ul className="navbar-nav mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="/">Home</a>
+                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" aria-current="page" onClick={executeScroll}>Work</a>
