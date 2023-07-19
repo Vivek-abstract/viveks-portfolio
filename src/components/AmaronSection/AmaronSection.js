@@ -15,7 +15,7 @@ export default function AmaronSection() {
                 <p className='product-description'>Developed an app for Amaron Malaysia, allowing dealers to register newly purchased car batteries
                     and customers to register and check their warranty info using a barcode scanner.<br />
                     Currently being used by 5000+ users</p>
-                    <a class="btn" target="_blank" href="https://bit.ly/Amaron-Malaysia">
+                    <a className="btn" target="_blank" href="https://bit.ly/Amaron-Malaysia">
                         View Project<FontAwesomeIcon icon={faArrowRight} />
                     </a>
             </div>

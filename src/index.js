@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import About from './components/About/About';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />
   },
+  {
+    path: "/about",
+    element: <About />,
+  }
 ]);
 root.render(
   <React.StrictMode>

@@ -7,14 +7,12 @@ import { useRef } from 'react';
 import Contact from './components/Contact/Contact';
 
 function App() {
-  // For scrolling
-  const workRef = useRef(null);
 
   return (
     <div>
       <NavBar refProp={workRef} />
       <HeroSection />
-      <hr ref={workRef} />
+      <hr id="work" />
       <AmaronSection />
       <hr />
       <AmaronSection />
