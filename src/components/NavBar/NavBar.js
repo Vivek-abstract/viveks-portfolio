@@ -1,23 +1,35 @@
 import './NavBar.css';
+import { useRef } from 'react';
 
-export default function NavBar() {
+export default function NavBar(props) {
+
+    let navBarBtn = useRef(null);
+    const executeScroll = () => {
+        props.refProp.current.scrollIntoView();
+        navBarBtn.current.click();
+    }
+
     return (
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand me-auto" href="/"><h3>Vivek Gawande</h3></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+            <div className="container-fluid">
+                <a className="navbar-brand me-auto" href="/"><h3>Vivek Gawande</h3></a>
+                <button className="navbar-toggler" type="button" ref={navBarBtn}
+                    data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse ms-auto justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <div className="collapse navbar-collapse ms-auto justify-content-end" id="navbarSupportedContent">
+                    <ul className="navbar-nav mb-2 mb-lg-0">
+                        <li className="nav-item">
+                            <a className="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/blog">Blog</a>
+                        <li className="nav-item">
+                            <a className="nav-link" aria-current="page" onClick={executeScroll}>Work</a>
                         </li>
-                        <li class="nav-item last-margin">
-                            <a class="nav-link" href="/about">About Me</a>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/blog">Blog</a>
+                        </li>
+                        <li className="nav-item last-margin">
+                            <a className="nav-link" href="/about">About Me</a>
                         </li>
                     </ul>
                 </div>

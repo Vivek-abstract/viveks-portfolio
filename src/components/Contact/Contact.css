@@ -1,0 +1,19 @@
+.contact{
+    flex-basis: 100%;
+}
+
+.contact-container
+{
+    flex-wrap: wrap;
+}
+
+.link
+{
+    color: grey;
+    text-decoration: none;
+}
+
+.link:hover{
+    text-decoration: underline;
+    color: rgb(87, 39, 182);
+}

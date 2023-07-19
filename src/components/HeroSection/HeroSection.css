@@ -1,0 +1,39 @@
+.profile-img {
+    height: 300px;
+    width: 300px;
+}
+
+.hero-container {
+    height: 65vh;
+    margin-top: 80px;
+    margin-bottom: 90px;
+}
+
+.description-container {
+    padding: 0 25px;
+}
+
+.description {
+    font-style: sans-serif;
+    font-size: 3rem;
+    padding-left: 80px;
+    margin-top: 40px;
+}
+
+@media screen and (max-width:990px) {
+    .hero-container {
+        flex-wrap: wrap;
+        justify-content: center !important;
+        height: auto;
+    }
+
+    .description {
+        padding-left: 25px;
+        padding-right: 25px;
+        font-size: 2rem;
+    }
+
+    .description-container {
+        text-align: center;
+    }
+}
