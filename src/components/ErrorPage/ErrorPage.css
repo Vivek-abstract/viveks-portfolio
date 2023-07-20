@@ -1,20 +1,20 @@
-.error-container{
+.error-container {
     height: 100vh;
     flex-wrap: wrap;
     gap: 0;
 }
 
-.error-title{
+.error-title {
     flex-basis: 100%;
     font-size: 4rem;
 }
 
-.error-message{
+.error-message {
     font-size: 2rem;
     color: grey;
 }
 
-a{
+.purple-link {
     text-decoration: none;
     color: rgb(129, 65, 255);
 }

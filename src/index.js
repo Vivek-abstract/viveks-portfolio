@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import About from './components/About/About';
 import HomePage from './components/HomePage/HomePage';
+import BlogPage from './components/BlogPage/BlogPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -25,13 +26,13 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />
+      },
+      {
+        path: '/blog',
+        element: <BlogPage />
       }
     ]
   },
-  {
-    path: "/about",
-    element: <About />,
-  }
 ]);
 root.render(
   <React.StrictMode>

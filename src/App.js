@@ -8,7 +8,6 @@ import Contact from './components/Contact/Contact';
 import { Outlet } from 'react-router-dom';
 
 function App() {
-  console.log("Here");
   return (
     <div>
       <NavBar />

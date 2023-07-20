@@ -27,9 +27,9 @@ export default function About() {
                 <div className="about-hobbies-container d-flex flex-column">
                     <h3 className="interests">My interests</h3>
                     <ul>
-                        <li className="list-item"><span class="me-2">Chess</span><FontAwesomeIcon icon={faChessQueen} color="#5905FF" /></li>
-                        <li className="list-item"><span class="me-2">Movies</span><FontAwesomeIcon icon={faVideo} color="#0087A9" /></li>
-                        <li className="list-item"><span class="me-2">Music</span><FontAwesomeIcon icon={faMusic} color="#EA638C" /></li>
+                        <li className="list-item"><span className="me-2">Chess</span><FontAwesomeIcon icon={faChessQueen} color="#5905FF" /></li>
+                        <li className="list-item"><span className="me-2">Movies</span><FontAwesomeIcon icon={faVideo} color="#0087A9" /></li>
+                        <li className="list-item"><span className="me-2">Music</span><FontAwesomeIcon icon={faMusic} color="#EA638C" /></li>
                     </ul>
                     <h3 className="technical-skills mt-3">Technical Skills</h3>
                     <ul>
