@@ -5,18 +5,14 @@ import HeroSection from './components/HeroSection/HeroSection';
 import AmaronSection from './components/AmaronSection/AmaronSection';
 import { useRef } from 'react';
 import Contact from './components/Contact/Contact';
+import { Outlet } from 'react-router-dom';
 
 function App() {
-
+  console.log("Here");
   return (
     <div>
-      <NavBar refProp={workRef} />
-      <HeroSection />
-      <hr id="work" />
-      <AmaronSection />
-      <hr />
-      <AmaronSection />
-      <hr />
+      <NavBar />
+      <Outlet />
       <Contact />
     </div>
   );

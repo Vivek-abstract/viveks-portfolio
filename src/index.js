@@ -9,13 +9,24 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import About from './components/About/About';
+import HomePage from './components/HomePage/HomePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      {
+        path: '/about',
+        element: <About />
+      }
+    ]
   },
   {
     path: "/about",

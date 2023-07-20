@@ -19,9 +19,6 @@ export default function NavBar(props) {
                             <NavLink className="nav-link" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="/#work">Work</a>
-                        </li>
-                        <li className="nav-item">
                             <NavLink className="nav-link" to="/blog">Blog</NavLink>
                         </li>
                         <li className="nav-item last-margin">
