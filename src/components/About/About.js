@@ -7,7 +7,7 @@ export default function About() {
         <div>
             <div className="container mt-5 d-flex justify-content-between about-container">
                 <div className="about-description-container">
-                    <h1>About Me</h1>
+                    <h1 class="about-title">About Me</h1>
                     <p className="about-description ">Hey there! I'm <span className="purple">Vivek</span>, a software developer with 4 years of experience in developing web and mobile applications.
                         I have a passion for writing clean and efficient code.
                     </p>
@@ -31,7 +31,7 @@ export default function About() {
                         <li className="list-item"><span className="me-2">Movies</span><FontAwesomeIcon icon={faVideo} color="#0087A9" /></li>
                         <li className="list-item"><span className="me-2">Music</span><FontAwesomeIcon icon={faMusic} color="#EA638C" /></li>
                     </ul>
-                    <h3 className="technical-skills mt-3">Technical Skills</h3>
+                    <h3 className="interests mt-3">Technical Skills</h3>
                     <ul>
                         <li className="list-item">.NET Framework / .NET Core</li>
                         <li className="list-item">Oracle PL/SQL, SQL Server</li>

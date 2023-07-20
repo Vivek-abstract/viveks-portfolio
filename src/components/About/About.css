@@ -2,7 +2,7 @@ p {
     font-size: 2rem;
 }
 
-h1 {
+.about-title {
     font-size: 3rem;
 }
 
@@ -22,21 +22,17 @@ h1 {
     font-size: 1.5rem;
 }
 
-.interests{
+.interests {
     font-size: 1.8rem;
 }
 
-.technical-skills{
-    font-size: 1.8rem;
-}
 
-.about-description{
+.about-description {
     font-size: 1.6rem;
 }
 
-.purple
-{
-    color:rgb(129, 65, 255);
+.purple {
+    color: rgb(129, 65, 255);
 }
 
 @media screen and (max-width: 990px) {
@@ -52,4 +48,21 @@ h1 {
         flex-basis: 100%;
         margin-top: 30px;
     }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-description{
+        font-size: 1.3rem;
+    }
+
+    .interests {
+        font-size: 1.5rem;
+    }
+
+    .list-item {
+        font-size: 1.3rem;
+    }
+
 }

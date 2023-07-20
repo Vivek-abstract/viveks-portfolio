@@ -1,19 +1,23 @@
-.contact{
+.contact {
     flex-basis: 100%;
 }
 
-.contact-container
-{
+.contact-container {
     flex-wrap: wrap;
 }
 
-.link
-{
+.link {
     color: grey;
     text-decoration: none;
 }
 
-.link:hover{
+.link:hover {
     text-decoration: underline;
     color: rgb(75, 11, 202);
+}
+
+@media screen and (max-width: 990px) {
+    .contact-text {
+        font-size: 2rem;
+    }
 }

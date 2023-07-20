@@ -11,6 +11,7 @@ import {
 import About from './components/About/About';
 import HomePage from './components/HomePage/HomePage';
 import BlogPage from './components/BlogPage/BlogPage';
+import BlogPost, { loader as blogPostLoader } from './components/BlogPost/BlogPost';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <BlogPage />
+      },
+      {
+        path: '/blog/:id',
+        element: <BlogPost />,
+        loader: blogPostLoader
       }
     ]
   },

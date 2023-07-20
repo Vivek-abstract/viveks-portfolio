@@ -1,5 +1,6 @@
 import { Link, redirect } from 'react-router-dom';
 import './BlogPage.css';
+import BlogDetails from '../BlogDetails/BlogDetails';
 
 export default function BlogPage() {
     const blogPosts = [
@@ -21,22 +22,9 @@ export default function BlogPage() {
         <div>
             <div className="container mt-5 d-flex justify-content-between blog-container">
                 <div className="heading-container"><h3 className='heading'>Latest Blog Posts</h3></div>
-
-                {blogPosts.map(post =>
-                    <div className='container d-flex mb-5 justify-content-between post-container' key={post.id}>
-                        <Link to='/' className='blog-link'>
-                            <img src={post.img}
-                                alt="Blog image"
-                                className="blog-image img-fluid" />
-                        </Link>
-                        <div className="blog-desc">
-                            <Link to="/blog/1" className='blog-link'>
-                                <h4 className='blog-title'>{post.title}</h4>
-                                <p className="blog-preview">{post.preview}...</p>
-                            </Link>
-                        </div>
-                    </div>
-                )}
+                    {blogPosts.map(post =>
+                        <BlogDetails key={post.id} post={post} />
+                    )}
             </div>
             <hr />
         </div>
