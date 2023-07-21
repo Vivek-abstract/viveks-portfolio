@@ -5,7 +5,6 @@ import * as contentful from 'contentful';
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 export async function loader({ params }) {
-
     var client = contentful.createClient({
         space: process.env.REACT_APP_CONTENTFUL_SPACE,
         accessToken: process.env.REACT_APP_CONTENTFUL_READ_API_KEY,
@@ -88,7 +87,6 @@ export default function BlogPost() {
     }
 
     const contentHtml = documentToReactComponents(post.content, renderOptions)
-    console.log(contentHtml);
     return (
         <div>
             <div className="container mt-5 d-flex post-container">

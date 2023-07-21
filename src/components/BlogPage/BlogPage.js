@@ -44,9 +44,17 @@ export default function BlogPage() {
         <div>
             <div className="container mt-5 d-flex justify-content-between blog-container">
                 <div className="heading-container"><h3 className='heading'>Latest Blog Posts</h3></div>
-                {posts.length > 0 && posts.map(post =>
-                    <BlogDetails key={post.id} post={post} />
-                )}
+                {posts == null ?
+                    <div className='d-flex justify-content-center spinner-container'>
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    :
+                    posts.map(post =>
+                        <BlogDetails key={post.id} post={post} />
+                    )
+                }
             </div>
             <hr />
         </div>

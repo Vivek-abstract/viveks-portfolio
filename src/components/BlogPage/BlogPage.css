@@ -39,6 +39,10 @@
     color: #212529;
 }
 
+.spinner-container{
+    flex-basis: 100%;
+}
+
 @media screen and (max-width: 990px) {
     .blog-container {
         padding-left: 20px;
