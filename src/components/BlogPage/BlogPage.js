@@ -1,41 +1,44 @@
-import { Link, redirect } from 'react-router-dom';
+import { Link, redirect, useLoaderData } from 'react-router-dom';
 import './BlogPage.css';
 import BlogDetails from '../BlogDetails/BlogDetails';
 import * as contentful from 'contentful';
 import { useEffect, useState } from 'react';
 
-export default function BlogPage() {
-    var [posts, setPosts] = useState([]);
-
-    const fetchPosts = () => {
-        // Token is read only
-        var client = contentful.createClient({
-            space: process.env.REACT_APP_CONTENTFUL_SPACE,
-            accessToken: process.env.REACT_APP_CONTENTFUL_READ_API_KEY,
+export async function postsLoader() {
+    // Token is read only
+    var client = contentful.createClient({
+        space: process.env.REACT_APP_CONTENTFUL_SPACE,
+        accessToken: process.env.REACT_APP_CONTENTFUL_READ_API_KEY,
+    });
+    var allPosts = [];
+    var posts = await client
+        .getEntries({
+            content_type: 'blogPost',
         });
-        var allPosts = [];
-        client
-            .getEntries({
-                content_type: 'blogPost',
-            })
-            .then(function (posts) {
-                console.log(posts);
-                posts.items.forEach(function (post) {
-                    allPosts.push({
-                        id: post.fields.id,
-                        title: post.fields.title,
-                        img: post.fields.image.fields.file.url,
-                        preview: post.fields.preview,
-                        content: post.fields.content,
-                        createdDate: new Date(post.fields.createdDate)
-                    })
-                });
-                allPosts = allPosts.sort((post1, post2) => post2.createdDate - post1.createdDate);
-                setPosts(allPosts);
-            });
+
+    if (!posts || posts.length == 0) {
+        throw new Response("", {
+            status: 404,
+            statusText: "Not Found",
+        });
     }
 
-    useEffect(() => fetchPosts, []);
+    posts.items.forEach(function (post) {
+        allPosts.push({
+            id: post.fields.id,
+            title: post.fields.title,
+            img: post.fields.image.fields.file.url,
+            preview: post.fields.preview,
+            content: post.fields.content,
+            createdDate: new Date(post.fields.createdDate)
+        })
+    });
+    allPosts = allPosts.sort((post1, post2) => post2.createdDate - post1.createdDate);
+    return allPosts;
+}
+
+export default function BlogPage() {
+    const posts = useLoaderData();
 
     return (
         <div>

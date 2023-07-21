@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import About from './components/About/About';
 import HomePage from './components/HomePage/HomePage';
-import BlogPage from './components/BlogPage/BlogPage';
+import BlogPage, { postsLoader } from './components/BlogPage/BlogPage';
 import BlogPost, { loader as blogPostLoader } from './components/BlogPost/BlogPost';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,7 +30,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/blog',
-        element: <BlogPage />
+        element: <BlogPage />,
+        loader: postsLoader
       },
       {
         path: '/blog/:id',

@@ -7,7 +7,7 @@ export default function About() {
         <div>
             <div className="container mt-5 d-flex justify-content-between about-container">
                 <div className="about-description-container">
-                    <h1 class="about-title">About Me</h1>
+                    <h1 className="about-title">About Me</h1>
                     <p className="about-description ">Hey there! I'm <span className="purple">Vivek</span>, a software developer with 4 years of experience in developing web and mobile applications.
                         I have a passion for writing clean and efficient code.
                     </p>
