@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import './BlogDetails.css';
 
 export default function BlogDetails(props) {
-    console.log(props)
     return (
         <div className='container d-flex mb-5 justify-content-between details-container'>
             <Link to={`/blog/${props.post.id}`} className='blog-link'>

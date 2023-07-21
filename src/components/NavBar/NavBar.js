@@ -11,7 +11,7 @@ export default function NavBar(props) {
     return (
         <nav className="navbar sticky-top navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-                <a className="navbar-brand me-auto" href="/"><h3>Vivek Gawande</h3></a>
+                <Link className="navbar-brand me-auto" to="/"><h3>Vivek Gawande</h3></Link>
                 <button className="navbar-toggler" type="button"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
