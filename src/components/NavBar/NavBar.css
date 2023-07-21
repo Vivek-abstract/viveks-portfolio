@@ -17,3 +17,7 @@
 .active {
     color: rgb(129, 65, 255) !important;
 }
+
+.navbar-heading {
+    margin-bottom: 0px;
+}

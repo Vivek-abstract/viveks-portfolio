@@ -26,10 +26,11 @@ export default function BlogPage() {
                         title: post.fields.title,
                         img: post.fields.image.fields.file.url,
                         preview: post.fields.preview,
-                        content: post.fields.content
+                        content: post.fields.content,
+                        createdDate: new Date(post.fields.createdDate)
                     })
                 });
-                console.log(allPosts);
+                allPosts = allPosts.sort((post1, post2) => post2.createdDate - post1.createdDate);
                 setPosts(allPosts);
             });
     }

@@ -21,10 +21,22 @@ a {
     color: rgb(129, 65, 255);
 }
 
+h2 {
+    flex-basis: 100%;
+}
+
+.content-image {
+    max-width: 80%;
+}
+
+.content-image-container {
+    flex-basis: 100%;
+}
+
 @media screen and (max-width: 990px) {
     .post-container {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 32px;
+        padding-right: 32px;
     }
 
     .post-body {
@@ -33,5 +45,17 @@ a {
 
     .post-title {
         font-size: 2rem;
+    }
+
+    .content-image {
+        max-width: 100%;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
     }
 }
