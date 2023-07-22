@@ -17,7 +17,7 @@
     padding: 25px;
 }
 
-.amaron-container {
+.work-container {
     flex-wrap: wrap;
     margin-bottom: 90px;
 }
@@ -43,8 +43,13 @@
     font-size: 3rem;
 }
 
+.product-image-container
+{
+    flex-basis: 100%;
+}
+
 @media screen and (max-width: 990px) {
-    .amaron-container {
+    .work-container {
         flex-wrap: wrap;
     }
 

@@ -13,15 +13,17 @@ export default function About() {
                     </p>
                     <p className="about-description mt-4">
                         I have a bachelors degree in Computer Science engineering from Mumbai University.
-                        During my tenure at Tata Consultancy Services, I had the exciting opportunity to collaborate 
-                        with a group of brilliant Canadian developers, which allowed me to hone my skills in C# .NET 
+                        During my tenure at Tata Consultancy Services, I had the exciting opportunity to collaborate
+                        with a group of brilliant Canadian developers, which allowed me to hone my skills in C# .NET
                         microservices and Oracle.
                     </p>
                     <p className="about-description mt-4">
                         I like learning new things everyday to improve my current development process.
                         One of the traits I'm known for is my unwavering attention to detail. I believe that it's the small, intricate elements
                         that elevate a good project to greatness.
-                        I take pride in producing robust, bug-free code that not only meets project requirements but also exceeds expectations.
+                    </p>
+                    <p className="about-description mt-4">
+                        Thanks for viewing my portfolio!
                     </p>
                 </div>
                 <div className="about-hobbies-container d-flex flex-column">
