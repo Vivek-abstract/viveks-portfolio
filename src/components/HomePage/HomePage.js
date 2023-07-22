@@ -14,7 +14,7 @@ export default function HomePage() {
             <WorkSample title={<>Amaron <br />Malaysia</>} oneLiner="BATTERY WARRANTY CHECKER APP"
                 description={<>Developed an app for Amaron Malaysia, allowing dealers to register newly purchased car batteries
                     and customers to register and check their warranty info using a barcode scanner.<br />
-                    Currently being used by 5000+ users</>}
+                    Currently being used by 5000+ users.</>}
                 link="https://bit.ly/Amaron-Malaysia"
                 image1={amaron_login_img}
                 image2={amaron_menu_img}
