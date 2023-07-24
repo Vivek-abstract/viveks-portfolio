@@ -8,7 +8,7 @@ export default function Contact() {
             <div className='d-flex mb-5'>
                 <h5 className='me-5'><a className="link" target="_blank" href="https://github.com/Vivek-abstract">GitHub</a></h5>
                 <h5 className='me-5'><a className="link"target="_blank" href="https://www.linkedin.com/in/vivekbgawande/">LinkedIn</a></h5>
-                <h5 className='me-5'><a className="link"target="_blank" href="https://bit.ly/ViveksResume">Resume</a></h5>
+                <h5><a className="link"target="_blank" href="https://bit.ly/ViveksResume">Resume</a></h5>
             </div>
         </div>
     );
