@@ -1,5 +1,4 @@
 import './Contact.css';
-import resume from '../../assets/Vivek_Gawande_Resume.pdf';
 
 export default function Contact() {
 
