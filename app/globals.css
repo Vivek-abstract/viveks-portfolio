@@ -72,6 +72,14 @@ code {
   background-color: var(--bg-alt);
 }
 
+@media (max-width: 768px) {
+  .section,
+  .section-alt {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 /* Fade-in animation */
 .fade-in {
   opacity: 0;
