@@ -1,0 +1,31 @@
+.tilt {
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+@media (pointer: coarse) {
+  .tilt {
+    transform: none !important;
+  }
+  .shine {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt {
+    transition: none !important;
+    transform: none !important;
+  }
+}

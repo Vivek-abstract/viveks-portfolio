@@ -1,24 +1,33 @@
 import { notFound } from 'next/navigation';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
-import { getAllPosts, getPostById } from '../../../lib/contentful';
+import { getAllPosts, getPostBySlug } from '../../../lib/contentful';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   if (posts.length === 0) {
-    // Return a placeholder so static export doesn't fail without Contentful credentials
     return [{ slug: '_placeholder' }];
   }
-  return posts.map((post) => ({ slug: String(post.id) }));
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const post = await getPostById(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return { title: 'Post Not Found' };
-  return { title: `${post.title} | Vivek Gawande` };
+  return {
+    title: post.title,
+    description: post.preview || `Read "${post.title}" by Vivek Gawande.`,
+    alternates: { canonical: `/blog/${slug}/` },
+    openGraph: {
+      title: post.title,
+      description: post.preview || `Read "${post.title}" by Vivek Gawande.`,
+      type: 'article',
+      ...(post.img && { images: [{ url: post.img }] }),
+    },
+  };
 }
 
 const renderOptions = {
@@ -73,7 +82,7 @@ const renderOptions = {
 
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
-  const post = await getPostById(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
