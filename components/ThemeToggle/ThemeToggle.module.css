@@ -1,0 +1,19 @@
+.toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  line-height: 1;
+}
+
+.toggle:hover {
+  border-color: var(--primary);
+  transform: rotate(15deg) scale(1.1);
+}
+
+.toggle:active {
+  transform: rotate(-15deg) scale(0.95);
+}

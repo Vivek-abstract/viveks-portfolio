@@ -1,0 +1,232 @@
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+/* ---- Photo ---- */
+.photoWrapper {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  transform: translateX(-40px) scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photoWrapper.entered {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.photoRing {
+  position: relative;
+  border-radius: 50%;
+  padding: 5px;
+  /* Static gradient ring — no hue-rotate that bleeds into the photo */
+  background: conic-gradient(
+    from 0deg,
+    var(--primary),
+    var(--accent),
+    var(--primary-light),
+    var(--primary)
+  );
+}
+
+.photo {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 4px solid var(--bg);
+}
+
+/* Status badge under photo */
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ---- Text ---- */
+.text {
+  max-width: 600px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.text.entered {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tagline {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.tagline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  animation: expandLine 0.8s 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.headline {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.gradientText {
+  color: var(--text);
+}
+
+.subheadline {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+/* ---- Buttons ---- */
+.ctas {
+  display: flex;
+  gap: 16px;
+}
+
+.btnPrimary {
+  background-color: var(--primary);
+  color: #fff !important;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  border: 2px solid var(--primary);
+  color: var(--primary) !important;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btnSecondary:hover {
+  background-color: var(--primary);
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* ---- Keyframes ---- */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes expandLine {
+  to {
+    width: 100%;
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+
+  .photo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .headline {
+    font-size: 2.4rem;
+  }
+
+  .subheadline {
+    font-size: 1.1rem;
+  }
+
+  .ctas {
+    justify-content: center;
+  }
+
+  .tagline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statusDot {
+    animation: none;
+  }
+  .tagline::before {
+    animation: none;
+    width: 100%;
+  }
+}
