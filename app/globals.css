@@ -1,0 +1,85 @@
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --text: #1a1a2e;
+  --text-muted: #6b7280;
+  --primary: #6d28d9;
+  --primary-light: #8b5cf6;
+  --accent: #10b981;
+  --border: #e5e7eb;
+  --card-bg: #ffffff;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --bg-alt: #1e293b;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --primary: #8b5cf6;
+  --primary-light: #a78bfa;
+  --accent: #10b981;
+  --border: #334155;
+  --card-bg: #1e293b;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --nav-bg: rgba(15, 23, 42, 0.95);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Fix Bootstrap hamburger menu visibility in dark mode */
+[data-theme="dark"] .navbar-toggler {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(148, 163, 184, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Section spacing */
+.section {
+  padding: 80px 0;
+}
+
+.section-alt {
+  padding: 80px 0;
+  background-color: var(--bg-alt);
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

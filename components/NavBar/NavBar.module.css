@@ -1,0 +1,35 @@
+.nav {
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding-left: 15px;
+}
+
+@media (min-width: 576px) {
+  .nav {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text) !important;
+  margin-bottom: 0;
+}
+
+.navLink {
+  color: var(--text-muted) !important;
+  font-weight: 500;
+  margin-right: 20px;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--primary) !important;
+}
+
+.active {
+  color: var(--primary) !important;
+}
