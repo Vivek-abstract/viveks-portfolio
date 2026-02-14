@@ -2,6 +2,7 @@ import { getYearsOfExperience } from '../../lib/utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChessQueen, faMusic, faVideo } from '@fortawesome/free-solid-svg-icons';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
+import styles from './about.module.css';
 
 export const metadata = {
   title: 'About',
@@ -53,8 +54,8 @@ export default function AboutPage() {
           </p>
         </ScrollReveal>
 
-        <div style={{ display: 'flex', gap: '60px', marginTop: '48px', flexWrap: 'wrap' }}>
-          <ScrollReveal animation="fade-left">
+        <div className={styles.skillsGrid}>
+          <ScrollReveal animation="fade-up">
             <div>
               <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '16px' }}>Technical Skills</h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -73,7 +74,7 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal animation="fade-right" delay={200}>
+          <ScrollReveal animation="fade-up" delay={200}>
             <div>
               <h3 style={{ fontSize: '1.4rem', fontWeight: 700, marginBottom: '16px' }}>Interests</h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>

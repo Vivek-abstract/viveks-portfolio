@@ -1,0 +1,13 @@
+.skillsGrid {
+  display: flex;
+  gap: 60px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .skillsGrid {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

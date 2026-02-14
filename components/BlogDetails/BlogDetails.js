@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { formatDate } from '../../lib/utils';
 import styles from './BlogDetails.module.css';
 
 export default function BlogDetails({ post }) {
@@ -16,7 +17,7 @@ export default function BlogDetails({ post }) {
           <h4 className={styles.title}>{post.title}</h4>
           <p className={styles.preview}>{post.preview}...</p>
         </Link>
-        <span className={styles.date}>{new Date(post.createdDate).toDateString()}</span>
+        <span className={styles.date}>{formatDate(post.createdDate)}</span>
       </div>
     </div>
   );

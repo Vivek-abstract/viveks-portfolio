@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import { getAllPosts, getPostBySlug } from '../../../lib/contentful';
+import { formatDate } from '../../../lib/utils';
 
 export const dynamicParams = false;
 
@@ -44,7 +45,7 @@ const renderOptions = {
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
       if (node.data.target.sys.contentType.sys.id === 'codeBlock') {
         return (
-          <pre>
+          <pre className="blog-code-block">
             <code>{node.data.target.fields.code}</code>
           </pre>
         );
@@ -103,7 +104,7 @@ export default async function BlogPostPage({ params }) {
           {post.title}
         </h1>
         <p style={{ color: 'var(--text-muted)', marginBottom: '32px' }}>
-          {new Date(post.createdDate).toDateString()}
+          {formatDate(post.createdDate)}
         </p>
         <div className="blog-content" style={{ fontSize: '1.15rem', lineHeight: 1.8 }}>
           {contentHtml}

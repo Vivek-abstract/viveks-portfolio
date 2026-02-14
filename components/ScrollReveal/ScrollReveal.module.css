@@ -83,6 +83,16 @@
   transform: rotate(0) translateY(0);
 }
 
+@media (max-width: 768px) {
+  .fade-left {
+    transform: translateX(-20px);
+  }
+
+  .fade-right {
+    transform: translateX(20px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .base {
     transition: none !important;
