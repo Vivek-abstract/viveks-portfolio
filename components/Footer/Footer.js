@@ -18,7 +18,7 @@ export default function Footer() {
             <FontAwesomeIcon icon={faLinkedin} size="lg" />
             <span>LinkedIn</span>
           </a>
-          <a href="https://bit.ly/ViveksResume" target="_blank" rel="noopener noreferrer" className={styles.link}>
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.link}>
             <FontAwesomeIcon icon={faFileLines} size="lg" />
             <span>Resume</span>
           </a>

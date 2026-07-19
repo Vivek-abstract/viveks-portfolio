@@ -48,11 +48,11 @@ export default function HeroSection() {
               <span className={styles.gradientText}>Engineer</span>
             </h1>
             <p className={styles.subheadline}>
-              {years}+ years building enterprise applications with .NET, React, and cloud technologies.
+              {years} years building enterprise applications with .NET and modern web technologies.
             </p>
             <div className={styles.ctas}>
               <a
-                href="https://bit.ly/ViveksResume"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`btn ${styles.btnPrimary}`}

@@ -24,7 +24,7 @@ export default function AboutPage() {
         <ScrollReveal animation="blur-in" delay={100}>
           <p style={{ fontSize: '1.15rem', lineHeight: 1.7, color: 'var(--text-muted)' }}>
             Hey there! I&apos;m <span style={{ color: 'var(--primary)', fontWeight: 600 }}>Vivek</span>, a Senior Software Engineer with{' '}
-            {years}+ years of experience building web and enterprise applications.
+            {years} years of experience building web and enterprise applications.
             I have a passion for writing clean and efficient code.
           </p>
         </ScrollReveal>

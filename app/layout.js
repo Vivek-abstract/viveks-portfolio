@@ -20,7 +20,7 @@ export const metadata = {
     template: '%s | Vivek Gawande',
   },
   description:
-    'Portfolio of Vivek Gawande — Senior Software Engineer with 6+ years of experience building enterprise applications with .NET, React, and cloud technologies.',
+    'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications with .NET and modern web technologies.',
   keywords: [
     'Vivek Gawande',
     'Senior Software Engineer',
@@ -39,13 +39,13 @@ export const metadata = {
     siteName: 'Vivek Gawande',
     title: 'Vivek Gawande | Senior Software Engineer',
     description:
-      'Portfolio of Vivek Gawande — Senior Software Engineer with 6+ years of experience building enterprise applications with .NET, React, and cloud technologies.',
+      'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications with .NET and modern web technologies.',
   },
   twitter: {
     card: 'summary',
     title: 'Vivek Gawande | Senior Software Engineer',
     description:
-      'Portfolio of Vivek Gawande — Senior Software Engineer with 6+ years of experience building enterprise applications.',
+      'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications.',
   },
   robots: {
     index: true,
