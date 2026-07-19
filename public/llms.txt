@@ -1,0 +1,12 @@
+# Vivek Gawande
+
+Senior Software Engineer specializing in C# / .NET full-stack web development,
+based in Navi Mumbai, India. 7 years building enterprise applications with
+.NET and modern web technologies — C# .NET Core, Entity Framework Core,
+SQL Server, Oracle, Vue, and Angular.
+
+## Links
+
+- About: https://vivekgawande.in/about
+- Blog: https://vivekgawande.in/blog
+- Resume: https://vivekgawande.in/resume.pdf

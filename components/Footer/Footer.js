@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faFileLines } from '@fortawesome/free-solid-svg-icons';
+import { faFileLines, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -21,6 +21,10 @@ export default function Footer() {
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.link}>
             <FontAwesomeIcon icon={faFileLines} size="lg" />
             <span>Resume</span>
+          </a>
+          <a href="mailto:vivekbgawande@gmail.com" className={styles.link}>
+            <FontAwesomeIcon icon={faEnvelope} size="lg" />
+            <span>Email</span>
           </a>
         </div>
         <p className={styles.copyright}>&copy; {year} Vivek Gawande</p>

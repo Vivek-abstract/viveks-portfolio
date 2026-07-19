@@ -7,7 +7,7 @@ import styles from './about.module.css';
 export const metadata = {
   title: 'About',
   description:
-    'Learn about Vivek Gawande — Senior Software Engineer specializing in C# .NET, React, and cloud technologies with experience at Wipro and TCS.',
+    'Learn about Vivek Gawande — Senior Software Engineer specializing in C# .NET and full-stack web development with experience at Wipro and TCS.',
   alternates: { canonical: '/about/' },
 };
 
@@ -31,7 +31,7 @@ export default function AboutPage() {
 
         <ScrollReveal animation="blur-in" delay={200}>
           <p style={{ fontSize: '1.15rem', lineHeight: 1.7, color: 'var(--text-muted)', marginTop: '20px' }}>
-            I have a bachelor&apos;s degree in Computer Science Engineering from Mumbai University.
+            I have a bachelor&apos;s degree in Computer Engineering from Mumbai University.
             Currently, I work at Wipro as a Senior Software Engineer for Optum (United Health Group),
             where I work on the Appeals Tracking System — automating manual processes and building
             integrations for fetching member and claims data.
@@ -61,9 +61,11 @@ export default function AboutPage() {
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {[
                   'C# / .NET Framework / .NET Core',
+                  'Entity Framework Core',
                   'SQL Server, Oracle PL/SQL',
-                  'Vue 2, React',
+                  'Vue 2, Angular',
                   'JavaScript, TypeScript',
+                  'familiar with React',
                   'Jenkins, Git',
                 ].map((skill) => (
                   <li key={skill} style={{ fontSize: '1.05rem', marginBottom: '8px', color: 'var(--text-muted)' }}>
