@@ -27,3 +27,6 @@ yarn-error.log*
 # playwright
 .playwright-mcp/
 *.png
+
+# claude code local dev-server config
+.claude/launch.json
