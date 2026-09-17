@@ -1,69 +1,126 @@
 .card {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 70px;
-  padding: 38px 0;
-  border-top: 1px solid var(--border);
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 32px;
+  transition:
+    border-color 0.3s,
+    transform 0.3s;
 }
-.employer h3 {
-  font-size: 1.5rem;
-  letter-spacing: -0.035em;
-  font-weight: 600;
-  margin: 14px 0 10px;
+.card::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 24px;
+  width: 3px;
+  height: 44px;
+  background: var(--primary);
+  transition: height 0.4s;
+}
+.card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+}
+.card:hover::before {
+  height: 90px;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.number {
+  font-size: 1.8rem;
+  color: var(--primary);
+  font-family: var(--mono);
+  letter-spacing: -0.08em;
 }
 .period {
-  font-family: ui-monospace, monospace;
-  font-size: 0.875rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
   color: var(--text-muted);
   margin: 0;
+}
+.company {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  margin: 24px 0 8px;
 }
 .client {
   color: var(--text-muted);
-  line-height: 1.7;
-  font-size: 0.95rem;
-  max-width: 260px;
+  font-size: 0.875rem;
+  margin-bottom: 26px;
 }
 .role {
-  font-size: 1.3rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin: 0 0 20px;
+  font-size: 1rem;
+  font-weight: 650;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  margin-bottom: 20px;
 }
 .highlights {
-  padding-left: 19px;
+  padding-left: 18px;
   margin: 0;
   color: var(--text-muted);
+  font-size: 1rem;
   line-height: 1.8;
 }
 .highlights li {
-  margin-bottom: 16px;
   padding-left: 5px;
+  margin-bottom: 16px;
 }
 .highlights li::marker {
   color: var(--primary);
+}
+.more {
+  border-top: 1px solid var(--border);
+  margin-top: 22px;
+}
+.more summary {
+  cursor: pointer;
+  padding: 14px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text);
+  list-style: none;
+}
+.more summary::-webkit-details-marker {
+  display: none;
+}
+.more summary span {
+  color: var(--primary);
+  font-size: 1.4rem;
+  transition: transform 0.25s;
+}
+.more[open] summary span {
+  transform: rotate(45deg);
+}
+.more[open] .highlights {
+  margin-top: 8px;
 }
 .stack {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 26px;
+  margin-top: 22px;
 }
 .pill {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  padding: 5px 9px;
   border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 5px 10px;
-  font-size: 0.875rem;
-  color: var(--text);
-  background: var(--card-bg);
+  color: var(--text-muted);
 }
 @media (max-width: 767px) {
   .card {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 30px 0;
+    padding: 24px;
   }
-  .client {
-    max-width: none;
-    margin: 0;
+  .top {
+    gap: 12px;
+    flex-wrap: wrap;
   }
 }

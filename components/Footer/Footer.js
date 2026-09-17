@@ -3,14 +3,15 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="container">
-        <div className={styles.top}>
-          <div>
-            <p className="eyebrow">Get in touch</p>
-            <h2>Let’s talk engineering.</h2>
-            <a className={styles.email} href="mailto:vivekbgawande@gmail.com">
-              vivekbgawande@gmail.com <span aria-hidden="true">↗</span>
-            </a>
-          </div>
+        <div className={styles.overline}>
+          <p className="eyebrow">HAVE SOMETHING IN MIND?</p>
+          <span aria-hidden="true">✳</span>
+        </div>
+        <a className={styles.headline} href="mailto:vivekbgawande@gmail.com">
+          Let’s talk<span aria-hidden="true">↗</span>
+        </a>
+        <div className={styles.contact}>
+          <a href="mailto:vivekbgawande@gmail.com">vivekbgawande@gmail.com</a>
           <div className={styles.links}>
             <a
               href="https://github.com/Vivek-abstract"
@@ -33,7 +34,7 @@ export default function Footer() {
         </div>
         <div className={styles.bottom}>
           <span>© {new Date().getFullYear()} Vivek Gawande</span>
-          <span>Senior Software Engineer</span>
+          <span>THOUGHTFULLY ENGINEERED.</span>
         </div>
       </div>
     </footer>

@@ -8,9 +8,13 @@
   border-radius: 50%;
   width: 44px;
   height: 44px;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
 }
 .toggle:hover {
   border-color: var(--primary);
+  color: var(--primary);
 }

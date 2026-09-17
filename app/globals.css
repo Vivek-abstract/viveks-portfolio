@@ -1,35 +1,43 @@
-:root {
-  --bg: #ffffff;
-  --bg-alt: #f3f5f8;
-  --text: #172336;
-  --text-muted: #566275;
-  --primary: #2455d6;
-  --primary-light: #1944b4;
-  --accent: #2455d6;
-  --border: #d9dfe8;
-  --card-bg: #ffffff;
-  --card-shadow: none;
-  --nav-bg: rgba(255, 255, 255, 0.94);
-  --button-text: #ffffff;
-  color-scheme: light;
-}
+:root,
 [data-theme="dark"] {
-  --bg: #101820;
-  --bg-alt: #16212d;
-  --text: #edf2fa;
-  --text-muted: #a6b4c6;
-  --primary: #8dacff;
-  --primary-light: #acc2ff;
-  --accent: #8dacff;
-  --border: #304052;
-  --card-bg: #182532;
-  --card-shadow: none;
-  --nav-bg: rgba(16, 24, 32, 0.94);
-  --button-text: #101820;
+  --bg: #111310;
+  --bg-alt: #171a15;
+  --text: #f0f0e8;
+  --text-muted: #a5ad9d;
+  --primary: #cbf568;
+  --primary-light: #dcff94;
+  --accent: #ff995f;
+  --border: #30362b;
+  --border-strong: #66705b;
+  --card-bg: #1d211a;
+  --nav-bg: rgba(17, 19, 16, 0.93);
+  --button-text: #171d0c;
+  --grid: #22291f;
+  --glow: rgba(165, 213, 83, 0.085);
+  --profile-shadow: #343f25;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   color-scheme: dark;
 }
+[data-theme="light"] {
+  --bg: #f5f6f0;
+  --bg-alt: #e9eddf;
+  --text: #1c2415;
+  --text-muted: #526044;
+  --primary: #345615;
+  --primary-light: #26450c;
+  --accent: #e8874d;
+  --border: #ccd4bd;
+  --border-strong: #83936e;
+  --card-bg: #fcfdf7;
+  --nav-bg: rgba(245, 246, 240, 0.94);
+  --button-text: #f6ffe8;
+  --grid: #dfe5d4;
+  --glow: rgba(112, 149, 58, 0.13);
+  --profile-shadow: #c4d2ac;
+  color-scheme: light;
+}
 .container {
-  max-width: 1160px;
+  max-width: 1240px;
   padding-left: 28px;
   padding-right: 28px;
 }
@@ -109,7 +117,7 @@ body {
 /* Selection styling */
 ::selection {
   background: var(--primary);
-  color: #fff;
+  color: var(--button-text);
 }
 
 a {
@@ -277,5 +285,22 @@ code {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+[data-motion="paused"] *,
+[data-motion="paused"] *::before,
+[data-motion="paused"] *::after {
+  animation-play-state: paused !important;
+  scroll-behavior: auto !important;
+}
+[data-motion="paused"] * {
+  transition-duration: 0s !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
   }
 }

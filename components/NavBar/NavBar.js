@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MotionControls from "../MotionControls/MotionControls";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import styles from "./NavBar.module.css";
 export default function NavBar() {
@@ -19,6 +20,7 @@ export default function NavBar() {
           vg<span>.</span>
         </Link>
         <div className={styles.controls}>
+          <MotionControls />
           <ThemeToggle />
           <button
             className={styles.menuButton}

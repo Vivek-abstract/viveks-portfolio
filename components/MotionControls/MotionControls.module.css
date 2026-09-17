@@ -1,0 +1,31 @@
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  z-index: 150;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+.toggle:hover:not(:disabled) {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.toggle:disabled {
+  opacity: 0.5;
+}

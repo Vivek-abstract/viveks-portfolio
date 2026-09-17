@@ -8,7 +8,6 @@ import GoogleAnalytics from "../components/GoogleAnalytics/GoogleAnalytics";
 
 config.autoAddCss = false;
 
-
 const siteUrl = "https://vivekgawande.in";
 
 export const metadata = {
@@ -56,7 +55,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='light'?'light':'dark';var m=localStorage.getItem('portfolio-motion');document.documentElement.dataset.motion=matchMedia('(prefers-reduced-motion: reduce)').matches||m==='paused'?'paused':'running'}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         <a className="skip-link" href="#main-content">

@@ -1,12 +1,15 @@
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: 0;
   overflow: hidden;
-  transition: border-color 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.3s;
 }
 .card:hover {
   border-color: var(--primary);
+  transform: translateY(-4px);
 }
 .imageLink {
   flex-shrink: 0;
@@ -63,4 +66,12 @@
   .desc {
     padding: 22px;
   }
+}
+
+.image {
+  filter: saturate(0.5);
+  transition: filter 0.4s;
+}
+.card:hover .image {
+  filter: saturate(1);
 }
