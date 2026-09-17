@@ -1,92 +1,66 @@
+.section {
+  padding: 110px 0;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.4fr;
+  gap: 70px;
+  align-items: start;
+}
 .heading {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 48px;
+  position: sticky;
+  top: 120px;
 }
-
-.timeline {
-  position: relative;
-  padding-left: 32px;
+.heading .cross {
+  color: var(--accent);
+  font-size: 1.5rem;
+  vertical-align: middle;
+  margin-right: 10px;
 }
-
-/* Background track */
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-  background-color: var(--border);
+.heading h2 {
+  font-size: clamp(2.3rem, 4.3vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  font-weight: 750;
+  margin: 25px 0;
 }
-
-/* Animated fill line */
-.timelineLine {
-  position: absolute;
-  left: 7px;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--primary), var(--accent));
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.1s linear;
-  z-index: 1;
+.heading h2 span {
+  color: var(--text-muted);
 }
-
-.item {
-  position: relative;
-  margin-bottom: 32px;
+.heading > p:not(:first-child) {
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 290px;
 }
-
-.item:last-child {
-  margin-bottom: 0;
+.heading a {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.875rem;
+  text-underline-offset: 6px;
 }
-
-.dot {
-  position: absolute;
-  left: -32px;
-  top: 32px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background-color: var(--primary);
-  border: 3px solid var(--bg-alt);
-  z-index: 2;
+.roles {
+  min-width: 0;
+  display: grid;
+  gap: 28px;
 }
-
-/* Ping animation on dot */
-.dotPing {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: var(--primary);
-  opacity: 0;
-  animation: dotPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-@keyframes dotPing {
-  0% {
-    transform: scale(1);
-    opacity: 0.4;
-  }
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
+@media (max-width: 991px) {
+  .layout {
+    grid-template-columns: 0.75fr 1.3fr;
+    gap: 32px;
   }
 }
-
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
   .heading {
-    font-size: 2rem;
+    position: static;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dotPing {
-    animation: none;
+  .heading > p:not(:first-child) {
+    max-width: 450px;
   }
-  .timelineLine {
-    transition: none;
+  .section {
+    padding: 64px 0;
   }
 }

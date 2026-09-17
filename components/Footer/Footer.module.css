@@ -1,48 +1,82 @@
 .footer {
   border-top: 1px solid var(--border);
-  padding: 48px 0;
-  margin-top: 40px;
-  position: relative;
+  padding: 64px 0 24px;
+  background: var(--bg);
 }
-
-/* Gradient line at top */
-.footer::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  border-radius: 1px;
-}
-
-.links {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 20px;
-}
-
-.link {
+.overline {
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: var(--text-muted) !important;
-  text-decoration: none !important;
-  font-weight: 500;
-  transition: color 0.2s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  justify-content: space-between;
 }
-
-.link:hover {
-  color: var(--primary) !important;
-  text-decoration: none !important;
-  transform: translateY(-2px);
+.overline > span {
+  font-size: 2.5rem;
+  color: var(--accent);
 }
-
-.copyright {
+.headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: var(--text);
+  font-size: clamp(3.5rem, 11vw, 9rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.075em;
+  padding: 20px 0 32px;
+}
+.headline span {
+  color: var(--primary);
+  transition: transform 0.35s;
+}
+.headline:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+.headline:hover span {
+  transform: translate(8px, -8px);
+}
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 24px 0 48px;
+  border-top: 1px solid var(--border);
+}
+.contact > a {
+  font-size: 1rem;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.links a {
   color: var(--text-muted);
-  font-size: 0.85rem;
-  margin: 0;
+  font-size: 0.875rem;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-family: var(--mono);
+}
+@media (max-width: 767px) {
+  .footer {
+    padding-top: 40px;
+  }
+  .contact {
+    flex-direction: column;
+    padding-bottom: 32px;
+  }
+  .headline {
+    font-size: clamp(3rem, 14vw, 6rem);
+  }
 }

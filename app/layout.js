@@ -1,51 +1,48 @@
-import { Inter } from 'next/font/google';
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './globals.css';
-import NavBar from '../components/NavBar/NavBar';
-import Footer from '../components/Footer/Footer';
-import GoogleAnalytics from '../components/GoogleAnalytics/GoogleAnalytics';
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./globals.css";
+import NavBar from "../components/NavBar/NavBar";
+import Footer from "../components/Footer/Footer";
+import GoogleAnalytics from "../components/GoogleAnalytics/GoogleAnalytics";
 
 config.autoAddCss = false;
 
-const inter = Inter({ subsets: ['latin'] });
-
-const siteUrl = 'https://vivekgawande.in';
+const siteUrl = "https://vivekgawande.in";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Vivek Gawande | Senior Software Engineer',
-    template: '%s | Vivek Gawande',
+    default: "Vivek Gawande | Senior Software Engineer",
+    template: "%s | Vivek Gawande",
   },
   description:
-    'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications with .NET and modern web technologies.',
+    "Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications with .NET and modern web technologies.",
   keywords: [
-    'Vivek Gawande',
-    'Senior Software Engineer',
-    'C#',
-    '.NET',
-    'React',
-    'Full Stack Developer',
-    'Portfolio',
+    "Vivek Gawande",
+    "Senior Software Engineer",
+    "C#",
+    ".NET",
+    "React",
+    "Full Stack Developer",
+    "Portfolio",
   ],
-  authors: [{ name: 'Vivek Gawande' }],
-  creator: 'Vivek Gawande',
+  authors: [{ name: "Vivek Gawande" }],
+  creator: "Vivek Gawande",
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
+    type: "website",
+    locale: "en_US",
     url: siteUrl,
-    siteName: 'Vivek Gawande',
-    title: 'Vivek Gawande | Senior Software Engineer',
+    siteName: "Vivek Gawande",
+    title: "Vivek Gawande | Senior Software Engineer",
     description:
-      'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications with .NET and modern web technologies.',
+      "Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications with .NET and modern web technologies.",
   },
   twitter: {
-    card: 'summary',
-    title: 'Vivek Gawande | Senior Software Engineer',
+    card: "summary",
+    title: "Vivek Gawande | Senior Software Engineer",
     description:
-      'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications.',
+      "Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications.",
   },
   robots: {
     index: true,
@@ -58,11 +55,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.dataset.theme=t==='light'?'light':'dark';var m=localStorage.getItem('portfolio-motion');document.documentElement.dataset.motion=matchMedia('(prefers-reduced-motion: reduce)').matches||m==='paused'?'paused':'running'}catch(e){}})();`,
+          }}
+        />
+      </head>
+      <body>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <NavBar />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>
