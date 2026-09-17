@@ -1,56 +1,57 @@
-'use client';
-
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import ThemeToggle from '../ThemeToggle/ThemeToggle';
-import styles from './NavBar.module.css';
-
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
+import styles from "./NavBar.module.css";
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/about', label: 'About' },
-  ];
-
-  const closeMenu = () => setIsOpen(false);
-
   return (
-    <nav className={`navbar sticky-top navbar-expand-lg ${styles.nav}`}>
-      <div className="container-fluid">
-        <Link className={`navbar-brand me-auto ${styles.brand}`} href="/">
-          Vivek Gawande
-        </Link>
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-controls="navbarNav"
-          aria-expanded={isOpen}
-          aria-label="Toggle navigation"
+    <nav className={styles.nav} aria-label="Main navigation">
+      <div className={`container ${styles.inner}`}>
+        <Link
+          className={styles.brand}
+          href="/"
+          onClick={() => setIsOpen(false)}
+          aria-label="Vivek Gawande, home"
         >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className={`collapse navbar-collapse justify-content-end ${isOpen ? 'show' : ''}`} id="navbarNav">
-          <ul className="navbar-nav mb-2 mb-lg-0 align-items-center">
-            {navLinks.map((link) => (
-              <li className="nav-item" key={link.href}>
-                <Link
-                  className={`nav-link ${styles.navLink} ${pathname === link.href ? styles.active : ''}`}
-                  href={link.href}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li className="nav-item ms-lg-2">
-              <ThemeToggle />
-            </li>
-          </ul>
+          vg<span>.</span>
+        </Link>
+        <div className={styles.controls}>
+          <ThemeToggle />
+          <button
+            className={styles.menuButton}
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-controls="main-links"
+            aria-expanded={isOpen}
+          >
+            {isOpen ? "Close" : "Menu"}
+          </button>
+        </div>
+        <div
+          id="main-links"
+          className={`${styles.links} ${isOpen ? styles.open : ""}`}
+        >
+          {[
+            { href: "/", label: "Home" },
+            { href: "/blog", label: "Writing" },
+            { href: "/about", label: "About" },
+          ].map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`${styles.link} ${(href === "/" ? pathname === "/" : pathname.startsWith(href)) ? styles.active : ""}`}
+              aria-current={pathname === href ? "page" : undefined}
+              onClick={() => setIsOpen(false)}
+            >
+              {label}
+            </Link>
+          ))}
+          <a className={styles.contact} href="mailto:vivekbgawande@gmail.com">
+            Get in touch <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </nav>

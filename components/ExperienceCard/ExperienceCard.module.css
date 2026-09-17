@@ -1,108 +1,69 @@
 .card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px 32px;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s ease,
-              border-color 0.35s ease;
-  position: relative;
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 70px;
+  padding: 38px 0;
+  border-top: 1px solid var(--border);
 }
-
-/* Gradient border glow on hover */
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
+.employer h3 {
+  font-size: 1.5rem;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  margin: 14px 0 10px;
 }
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(109, 40, 217, 0.12);
-  border-color: transparent;
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.role {
-  font-size: 1.3rem;
-  font-weight: 700;
+.period {
+  font-family: ui-monospace, monospace;
+  font-size: 0.875rem;
+  color: var(--text-muted);
   margin: 0;
 }
-
-.period {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
-
-.company {
-  color: var(--primary);
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 12px;
-}
-
 .client {
   color: var(--text-muted);
-  font-weight: 400;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  max-width: 260px;
 }
-
+.role {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
 .highlights {
+  padding-left: 19px;
+  margin: 0;
   color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.8;
+}
+.highlights li {
   margin-bottom: 16px;
-  padding-left: 20px;
+  padding-left: 5px;
 }
-
-.highlight {
-  margin-bottom: 4px;
+.highlights li::marker {
+  color: var(--primary);
 }
-
 .stack {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 26px;
 }
-
 .pill {
-  background-color: var(--bg-alt);
-  color: var(--primary);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
   border: 1px solid var(--border);
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.875rem;
+  color: var(--text);
+  background: var(--card-bg);
 }
-
-.pill:hover {
-  transform: translateY(-1px);
-  background-color: var(--primary);
-  color: #fff;
-  border-color: var(--primary);
+@media (max-width: 767px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 30px 0;
+  }
+  .client {
+    max-width: none;
+    margin: 0;
+  }
 }
