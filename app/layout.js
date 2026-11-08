@@ -16,11 +16,11 @@ const siteUrl = 'https://vivekgawande.in';
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Vivek Gawande | Senior Software Engineer',
+    default: 'Vivek Gawande',
     template: '%s | Vivek Gawande',
   },
   description:
-    'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications with .NET and modern web technologies.',
+    'Personal site of Vivek Gawande, a software engineer in Navi Mumbai. Side projects and writing about software.',
   keywords: [
     'Vivek Gawande',
     'Senior Software Engineer',
@@ -37,15 +37,15 @@ export const metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName: 'Vivek Gawande',
-    title: 'Vivek Gawande | Senior Software Engineer',
+    title: 'Vivek Gawande',
     description:
-      'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications with .NET and modern web technologies.',
+      'Personal site of Vivek Gawande, a software engineer in Navi Mumbai. Side projects and writing about software.',
   },
   twitter: {
     card: 'summary',
-    title: 'Vivek Gawande | Senior Software Engineer',
+    title: 'Vivek Gawande',
     description:
-      'Portfolio of Vivek Gawande — Senior Software Engineer with 7 years of experience building enterprise applications.',
+      'Personal site of Vivek Gawande, a software engineer in Navi Mumbai. Side projects and writing about software.',
   },
   robots: {
     index: true,
