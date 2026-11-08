@@ -3,7 +3,7 @@ import BlogDetails from '../../components/BlogDetails/BlogDetails';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
 
 export const metadata = {
-  title: 'Blog',
+  title: 'Writing',
   description:
     'Blog posts by Vivek Gawande on software engineering, .NET, React, and web development.',
   alternates: { canonical: '/blog/' },
@@ -17,7 +17,7 @@ export default async function BlogPage() {
       <div className="container" style={{ maxWidth: '900px' }}>
         <ScrollReveal animation="fade-up">
           <h1 style={{ fontSize: '2.8rem', fontWeight: 800, marginBottom: '40px' }}>
-            Latest Blog Posts
+            Writing
           </h1>
         </ScrollReveal>
         {posts.map((post, i) => (
