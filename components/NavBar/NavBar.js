@@ -11,8 +11,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/blog', label: 'Writing' },
     { href: '/about', label: 'About' },
   ];
 
@@ -47,6 +46,11 @@ export default function NavBar() {
                 </Link>
               </li>
             ))}
+            <li className="nav-item">
+              <a className={`nav-link ${styles.navLink}`} href="/resume.pdf" onClick={closeMenu}>
+                Résumé
+              </a>
+            </li>
             <li className="nav-item ms-lg-2">
               <ThemeToggle />
             </li>
