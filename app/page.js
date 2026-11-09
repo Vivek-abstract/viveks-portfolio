@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getAllPosts } from '../lib/contentful';
 import { formatDate } from '../lib/utils';
 import Harbour from './Harbour';
+import ListeningRoom from './ListeningRoom';
 import styles from './personal.module.css';
 
 export default async function HomePage() {
@@ -50,6 +51,19 @@ export default async function HomePage() {
                   <li>The app refreshes the listing every minute.</li>
                   <li>The price turns green when the part is in stock and below your target.</li>
                 </ol>
+                <figure className={styles.trackerShot}>
+                  <a href="https://user-images.githubusercontent.com/9103920/121368350-a3f54f80-c958-11eb-90e8-f3f9a275bdf8.png">
+                    <Image
+                      src="https://user-images.githubusercontent.com/9103920/121368350-a3f54f80-c958-11eb-90e8-f3f9a275bdf8.png"
+                      alt="Original PC Part Price Tracker window with saved listings"
+                      width={850}
+                      height={500}
+                      loading="lazy"
+                      unoptimized
+                    />
+                  </a>
+                  <figcaption>Original app screenshot from the GitHub README</figcaption>
+                </figure>
               </div>
             </article>
 
@@ -111,8 +125,8 @@ export default async function HomePage() {
             <p className={styles.label}>Off the clock</p>
             <h2 id="personal-title">A bit about me</h2>
             <p className={styles.intro}>
-              I studied computer engineering at Mumbai University. When I’m away from a code editor,
-              I’m usually up for a game of chess or a good movie.
+              I studied computer engineering at Mumbai University. Away from work, it’s
+              usually chess, music, or a movie.
             </p>
             <div className={styles.links}>
               <Link href="/about/">More about me <span aria-hidden="true">↗</span></Link>
@@ -139,6 +153,17 @@ export default async function HomePage() {
               <figcaption>My blitz rating on Chess.com, November 2026</figcaption>
             </figure>
           </div>
+        </section>
+        <ListeningRoom />
+
+        <section className={styles.section} aria-labelledby="film-title">
+          <p className={styles.label}>Off the clock / Film</p>
+          <h2 id="film-title">Favourite movies</h2>
+          <ul className={styles.films}>
+            <li><span aria-hidden="true">01</span>Inception</li>
+            <li><span aria-hidden="true">02</span>Interstellar</li>
+            <li><span aria-hidden="true">03</span>Fight Club</li>
+          </ul>
         </section>
       </div>
     </div>
