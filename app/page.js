@@ -35,9 +35,9 @@ export default async function HomePage() {
                 <p className={styles.label}>01 / Windows · C#</p>
                 <h3>PC Part Price Tracker</h3>
                 <p className={styles.projectDescription}>
-                  I built this for the part of a PC build that happens before you buy anything.
-                  Pick a listing from an Indian PC retailer, set the price you want to pay,
-                  and the app checks the listing for you.
+                  I built this when GPU prices were sky-high. I wanted one place to check
+                  which cards were in stock, compare prices across Indian retailers, and
+                  see when a card dropped below what I was willing to pay.
                 </p>
                 <a className={styles.sourceLink} href="https://github.com/Vivek-abstract/PCPartPriceTracker">
                   View the tracker on GitHub <span aria-hidden="true">↗</span>
