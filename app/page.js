@@ -120,6 +120,26 @@ export default async function HomePage() {
             </div>
           </div>
         </section>
+
+        <section className={styles.section} aria-labelledby="chess-title">
+          <div className={styles.chess}>
+            <div>
+              <p className={styles.label}>Off the clock / Chess</p>
+              <h2 id="chess-title">I crossed 2200 in blitz.</h2>
+              <p className={styles.intro}>
+                I love playing chess. I play as HutchPlaysChess on Chess.com,
+                and recently hit a personal best of 2203 in blitz.
+              </p>
+              <a className={styles.sourceLink} href="https://www.chess.com/member/hutchplayschess/stats/blitz">
+                HutchPlaysChess on Chess.com <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <figure>
+              <Image src="/chess-blitz-milestone.jpg" alt="Chess.com blitz rating chart showing a climb past 2200 and a high of 2203" width={710} height={350} loading="lazy" />
+              <figcaption>My blitz rating on Chess.com, November 2026</figcaption>
+            </figure>
+          </div>
+        </section>
       </div>
     </div>
   );

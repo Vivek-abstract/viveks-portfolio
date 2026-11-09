@@ -301,6 +301,34 @@
   transform: rotate(-3deg);
 }
 
+.chess {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid var(--rule);
+  background: var(--card-bg);
+}
+
+.chess figure {
+  margin: 0;
+}
+
+.chess img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: .35rem;
+}
+
+.chess figcaption {
+  margin-top: .5rem;
+  color: var(--soft-ink);
+  font-size: .8rem;
+}
+
 .about {
   max-width: 45rem;
   padding-block: clamp(3rem, 9vw, 7rem);
@@ -317,7 +345,8 @@
   }
 
   .hero,
-  .project {
+  .project,
+  .chess {
     grid-template-columns: 1fr;
   }
 
