@@ -93,18 +93,9 @@
   align-items: center;
   justify-content: space-between;
   gap: .15rem 1rem;
-  padding: .35rem .35rem 0;
+  padding: .55rem .35rem .25rem;
   font: 500 .75rem/1.4 ui-monospace, monospace;
   color: var(--soft-ink);
-}
-
-.motionControl {
-  padding: .6rem 0;
-  color: var(--signal);
-  background: none;
-  border: 0;
-  text-decoration: underline;
-  text-underline-offset: .2em;
 }
 
 .boat {
@@ -121,10 +112,6 @@
 
 .ripples {
   animation: shimmer 5s ease-in-out infinite alternate;
-}
-
-.harbour[data-paused='true'] :is(.boat, .distantBoat, .gulls, .ripples) {
-  animation-play-state: paused;
 }
 
 @keyframes sail {
@@ -377,12 +364,7 @@
     animation: none;
   }
 
-  .motionControl {
-    display: none;
-  }
-}
-
-.trackList {
+  .trackList {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: .75rem;

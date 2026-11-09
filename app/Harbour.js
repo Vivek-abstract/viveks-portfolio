@@ -1,15 +1,8 @@
-'use client';
-
-import { useState } from 'react';
 import styles from './personal.module.css';
 
-const masonry = [134, 150, 166, 182, 198, 214, 230, 246, 262];
-
 export default function Harbour() {
-  const [paused, setPaused] = useState(false);
-
   return (
-    <figure className={styles.harbour} data-paused={paused}>
+    <figure className={styles.harbour}>
       <svg className={styles.scene} viewBox="0 0 800 450" role="img" aria-label="An ink sketch of paper boats drifting past the Gateway of India at sunset">
         <defs>
           <linearGradient id="harbour-sky" x2="0" y2="1" gradientUnits="objectBoundingBox">
@@ -27,10 +20,22 @@ export default function Harbour() {
           <pattern id="harbour-grain" width="19" height="17" patternUnits="userSpaceOnUse">
             <path d="M2 4h1m9 8h1m5-10h1M7 15h1" stroke="#fff1de" opacity=".16" />
           </pattern>
-          <g id="harbour-tower">
-            <path d="M-22 269V144h-4v-9h8v-14h6v-12Q0 98 12 109v12h6v14h8v9h-4v125Z" fill="#623746" />
-            <path d="M-18 147h36v121h-36Z" fill="url(#harbour-hatch)" stroke="none" />
-            <path d="M0 101v-8m-10 28h20m-25 6h30m-40 17h50m-46 8h42m-42 54h42m-42 7h42m-42 43h42M-6 189v-19q6-10 12 0v19zM-5 241v-14q5-9 10 0v14z" fill="none" />
+          <pattern id="harbour-jali" width="5" height="5" patternUnits="userSpaceOnUse">
+            <path d="M2.5 .7 4.3 2.5 2.5 4.3.7 2.5Z" fill="#70444c" />
+          </pattern>
+          <g id="harbour-pier">
+            <path d="M-16 278v-7h3v-12h3V181h-4v-8h3v-22h-4v-7h5v-28h-3v-7h2V89h-2l3-5 2-5 4-5 2-5h4l2 5 4 5 2 5 3 5h-2v20h2v7h-3v28h5v7h-4v22h3v8h-4v78h3v12h3v7Z" fill="#ac735f" />
+            <path d="M-5 89h10v19H-5zM-6 118H6v24H-6zM-6 152H6v20H-6zM-6 183H6v74H-6z" fill="#bb8368" stroke="none" />
+            <path d="M8 91h3v18H8zm0 27h3v26H8zm0 33h3v22H8zm0 31h3v76H8z" fill="#7d4c4f" stroke="none" />
+            <path d="M0 69v-5M-9 83H9m-10-5h2m-7 2h12m-18 7h24m-23 5h22m-23 17h24m-24 7h24m-23 28h22m-25 7h28m-25 22h22m-25 8h28m-24 8h20m-20 65h20m-24 7h28m-30 7h30m-32 5h32M-5 104v-8l2-2 2 2v8m3 0v-8l2-2 2 2v8" fill="none" />
+          </g>
+          <g id="harbour-side-arch">
+            <path d="M-23 278V201h46v77Z" fill="#9d6257" />
+            <path d="M-18 278v-45q0-16 18-26 18 10 18 26v45Z" fill="#d39b75" />
+            <path d="M-15 233q0-13 15-22 15 9 15 22v5h-30Z" fill="url(#harbour-jali)" />
+            <path d="M-12 241h24v37h-24Z" fill="#b67c62" />
+            <path d="M-8 278v-25q0-5 8-11 8 6 8 11v25Z" fill="#593445" />
+            <path d="M-18 238h36m-33-8h30m-15-17v24m-15 7v32m30-32v32" fill="none" />
           </g>
           <g id="harbour-paper">
             <path d="M-42 3-24 24h47L43 1 12 8 1-22-17 9Z" fill="#fbe1be" />
@@ -52,20 +57,30 @@ export default function Harbour() {
           <path d="M0 250l51-7 36 4 45-13 41 4m425 12 29-5 44 6 44-11 38 6 47-3" />
         </g>
 
-        <g stroke="#f2b391" strokeWidth="1.45" strokeLinejoin="round" strokeLinecap="round">
-          <path d="M181 268V164h-7v-11h28v-19h22v-12h23v-15h170v15h23v12h22v19h28v11h-7v104Z" fill="#74414d" />
-          <path d="M182 266V165h300v101Z" fill="url(#harbour-hatch)" stroke="none" />
-          {masonry.map((y) => <path key={y} d={`M187 ${y}h290`} opacity=".21" />)}
-          <path d="M202 153h260m-285 11h310m-291 92h272M230 134h204m-197-11h190m-162-14v-12h12v12m24 0v-12h12v12m24 0v-12h12v12m24 0v-12h12v12" fill="none" />
-          <path d="M259 268v-44q0-37 73-70 73 33 73 70v44Z" fill="#492b3c" />
-          <path d="M272 268v-43q0-32 60-62 60 30 60 62v43Z" fill="#ce795f" />
-          <path d="M277 268v-42q0-27 55-57 55 30 55 57v42Z" fill="url(#harbour-sky)" stroke="none" />
-          <path d="M264 268v-43q0-34 68-67 68 33 68 67v43m-113-37v37m91-37v37M311 146h42m-14-9h-14" fill="none" />
-          <use href="#harbour-tower" x="207" />
-          <use href="#harbour-tower" x="457" />
-          <path d="m162 269 342-1 10 7H151Z" fill="#633b46" />
-          <path d="M143 276h382l16 8H125Z" fill="#533341" />
-          <path d="M116 284h436l15 9H102Z" fill="#412b3b" />
+        <g stroke="#edb58c" strokeWidth=".95" strokeLinejoin="round" strokeLinecap="round">
+          <path d="M181 278v-91h-9v-6h10v-24h-4v-5h8v-8h85v-31h8v-8h102v8h8v31h85v8h8v5h-4v24h10v6h-9v91Z" fill="#ad755f" />
+          <path d="M181 194h298v84H181Z" fill="url(#harbour-hatch)" stroke="none" opacity=".7" />
+          {[205, 218, 232, 247, 262].map((y) => (
+            <path key={y} d={`M183 ${y}h294`} fill="none" opacity=".35" />
+          ))}
+          <path d="M186 144h88m112 0h88m-296 8h96m112 0h96m-301 7h92m114 0h92m-307 22h106m104 0h106m-316 6h104m108 0h104m-307 7h298M279 105h102m-104 8h106" fill="none" />
+          <path d="M195 163h68v13h-68Zm202 0h68v13h-68Z" fill="url(#harbour-jali)" opacity=".68" />
+          <path d="M285 121h90v21h-90Z" fill="#c48b6d" />
+          <path d="M291 127h78m-77 4h76m-73 4h70" fill="none" opacity=".7" />
+          <path d="M279 144h102v29H279Z" fill="#82504e" />
+          <path d="M280 148h100m-98 23h96m-93 0v-22m11 22v-22m11 22v-22m11 22v-22m12 22v-22m12 22v-22m11 22v-22m11 22v-22m11 22v-22" fill="none" strokeWidth="1.5" />
+          <path d="M296 278v-54q0-20 34-36 34 16 34 36v54Z" fill="#633c49" />
+          <path d="M303 278v-52q0-17 27-29 27 12 27 29v52Z" fill="#ac695c" />
+          <path d="M308 278v-48q0-16 22-26 22 10 22 26v48Z" fill="#d49376" stroke="none" />
+          <path d="M299 278v-53q0-20 31-34 31 14 31 34v53" fill="none" />
+          <circle cx="290" cy="193" r="3" fill="#88524f" />
+          <circle cx="370" cy="193" r="3" fill="#88524f" />
+          <use href="#harbour-side-arch" x="229" />
+          <use href="#harbour-side-arch" x="431" />
+          <use href="#harbour-pier" x="274" />
+          <use href="#harbour-pier" x="386" />
+          <path d="M170 278h320l15 6H153Z" fill="#72474c" />
+          <path d="M151 284h356l29 8H123Z" fill="#4c303e" />
         </g>
 
         <path d="M0 295q109-7 202 0t221 0 201-1 176 1v155H0Z" fill="url(#harbour-water)" />
@@ -88,10 +103,7 @@ export default function Harbour() {
         </g>
       </svg>
       <figcaption className={styles.harbourCaption}>
-        <span>Gateway of India, Mumbai</span>
-        <button type="button" className={styles.motionControl} onClick={() => setPaused(!paused)}>
-          {paused ? 'Play animation' : 'Pause animation'}
-        </button>
+        Gateway of India, Mumbai
       </figcaption>
     </figure>
   );
