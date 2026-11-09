@@ -1,0 +1,526 @@
+.page {
+  --paper: var(--bg);
+  --ink: var(--text);
+  --soft-ink: var(--text-muted);
+  --rule: var(--border);
+  --signal: var(--primary);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.shell {
+  width: min(100% - 3rem, 76rem);
+  margin-inline: auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, .64fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-block: clamp(3rem, 8vw, 7rem);
+}
+
+.hero h1,
+.about h1,
+.section h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+
+.hero h1,
+.about h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(3.75rem, 8vw, 8rem);
+  line-height: .88;
+}
+
+.hero h1 em {
+  color: var(--signal);
+}
+
+.label {
+  margin: 0 0 0.8rem;
+  color: var(--signal);
+  font: 650 0.75rem/1.4 ui-monospace, monospace;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 46ch;
+  color: var(--soft-ink);
+  font-size: clamp(1rem, 1.65vw, 1.2rem);
+  line-height: 1.65;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem 1.4rem;
+  margin-top: 1.5rem;
+}
+
+.links a,
+.about a {
+  color: var(--signal);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: .28em;
+}
+
+.harbour {
+  margin: 0;
+  min-width: 0;
+  padding: .5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: .35rem;
+  box-shadow: .5rem .5rem 0 var(--rule);
+}
+
+.scene {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #2c1c30;
+}
+
+.harbourCaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .15rem 1rem;
+  padding: .55rem .35rem .25rem;
+  font: 500 .75rem/1.4 ui-monospace, monospace;
+  color: var(--soft-ink);
+}
+
+.boat {
+  animation: sail 16s ease-in-out infinite alternate;
+}
+
+.distantBoat {
+  animation: sail 21s -9s ease-in-out infinite alternate;
+}
+
+.gulls {
+  animation: glide 22s ease-in-out infinite alternate;
+}
+
+.ripples {
+  animation: shimmer 5s ease-in-out infinite alternate;
+}
+
+@keyframes sail {
+  0% { transform: translate(0, 0) rotate(-2deg); }
+  30% { transform: translate(66px, -6px) rotate(2deg); }
+  65% { transform: translate(148px, 2px) rotate(-1deg); }
+  100% { transform: translate(228px, -6px) rotate(2deg); }
+}
+
+@keyframes glide {
+  from { transform: translate(-40px, 8px); }
+  to { transform: translate(190px, -20px); }
+}
+
+@keyframes shimmer {
+  from { opacity: .56; transform: translateX(-5px); }
+  to { opacity: 1; transform: translateX(6px); }
+}
+
+.section {
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+  scroll-margin-top: 5rem;
+}
+
+.section h2 {
+  margin: 0 0 1.4rem;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  line-height: 1;
+}
+
+.projects {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(1.25rem, 4vw, 3rem);
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--signal);
+}
+
+.project h3 {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+
+.trackerDetail {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--rule);
+  background: var(--bg-alt);
+}
+
+.trackerDetail ol {
+  margin: 0;
+  padding-inline-start: 1.15rem;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.trackerDetail li + li {
+  margin-top: .5rem;
+}
+
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.55rem, 2vw, 1.25rem);
+  max-width: 26rem;
+}
+
+.screenshots figure {
+  margin: 0;
+}
+
+.screenshots a {
+  display: block;
+  border-radius: .45rem;
+}
+
+.screenshots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: inherit;
+}
+
+.screenshots figcaption {
+  margin-top: .45rem;
+  color: var(--soft-ink);
+  font-size: .8rem;
+}
+
+.post h3 {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+
+.projectDescription,
+.post p:not(.label),
+.about p {
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.sourceLink {
+  color: var(--signal);
+  font-size: .9rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: .25em;
+}
+
+.posts {
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.posts li {
+  border-block-start: 1px solid var(--rule);
+}
+
+.page .post {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.4rem 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.post:hover h3,
+.post:focus-visible h3 {
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.post p:last-child {
+  margin-bottom: 0;
+}
+
+.arrow {
+  color: var(--signal);
+  font-size: 1.5rem;
+}
+
+.personal {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 6vw, 5rem);
+}
+
+.portrait {
+  width: clamp(7rem, 19vw, 14rem);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 5px solid var(--card-bg);
+  outline: 1px solid var(--rule);
+  transform: rotate(-3deg);
+}
+
+.chess {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid var(--rule);
+  background: var(--card-bg);
+}
+
+.chess figure {
+  margin: 0;
+}
+
+.chess img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: .35rem;
+}
+
+.chess figcaption {
+  margin-top: .5rem;
+  color: var(--soft-ink);
+  font-size: .8rem;
+}
+
+.about {
+  max-width: 45rem;
+  padding-block: clamp(3rem, 9vw, 7rem);
+}
+
+.about p {
+  max-width: 57ch;
+  font-size: 1.125rem;
+}
+
+@media (max-width: 780px) {
+  .shell {
+    width: calc(100% - 2rem);
+  }
+
+  .hero,
+  .project,
+  .chess {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 br {
+    display: none;
+  }
+
+  .hero h1 em {
+    margin-inline-start: .14em;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero h1 {
+    font-size: clamp(2.65rem, 12vw, 4rem);
+  }
+
+  .personal {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boat,
+  .distantBoat,
+  .gulls,
+  .ripples {
+    animation: none;
+  }
+}
+
+.trackList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trackList iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: .65rem;
+}
+
+@media (max-width: 780px) {
+  .trackList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.films {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  list-style: none;
+}
+
+.films li {
+  border: 1px solid var(--rule);
+  background: var(--card-bg);
+}
+
+.films svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.films li > div {
+  padding: 1rem 1.25rem;
+}
+
+.films h3 {
+  margin: 0 0 .4rem;
+  font: 400 clamp(1.5rem, 3vw, 2.3rem)/1.15 Georgia, serif;
+}
+
+.films p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.5;
+}
+
+.spinningTop {
+  transform-origin: 180px 155px;
+}
+
+.topTrace,
+.fightFlash {
+  opacity: 0;
+}
+
+.orbitLight {
+  transform-origin: 180px 109px;
+}
+
+.jab {
+  transform-origin: 0 -17px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .films li .spinningTop { animation: film-spin 4s linear infinite; }
+  .films li .topTrace { animation: film-trace 4s ease-out infinite; }
+  .films li .orbitLight { animation: film-orbit 4s cubic-bezier(.25, .7, .3, 1) infinite; }
+  .films li .fighterOne { animation: film-step-one 4s ease-in-out infinite; }
+  .films li .fighterTwo { animation: film-step-two 4s ease-in-out infinite; }
+  .films li .fighterOne .jab { animation: film-jab 4s ease-in-out infinite; }
+  .films li .fighterTwo .jab { animation: film-jab 4s .8s ease-in-out infinite; }
+  .films li .fightFlash { animation: film-flash 4s linear infinite; }
+}
+
+.films li:not([data-playing='true']) :is(.spinningTop, .topTrace, .orbitLight, .fighterOne, .fighterTwo, .jab, .fightFlash) {
+  animation-play-state: paused;
+}
+
+@keyframes film-spin {
+  0%, 100% { transform: rotate(0) scaleX(1); }
+  8%, 24%, 40%, 56% { transform: rotate(2deg) scaleX(.88); }
+  16%, 32%, 48%, 64% { transform: rotate(-2deg) scaleX(1); }
+  78% { transform: rotate(6deg) scaleX(.93); }
+  91% { transform: rotate(-5deg); }
+}
+
+@keyframes film-trace {
+  0%, 100% { opacity: 0; }
+  12%, 63% { opacity: .65; }
+}
+
+@keyframes film-orbit {
+  from { transform: rotate(0); }
+  to { transform: rotate(720deg); }
+}
+
+@keyframes film-step-one {
+  0%, 100% { transform: translate(0, 0); }
+  16% { transform: translate(22px, -3px); }
+  29% { transform: translate(44px, -5px) rotate(9deg); }
+  40% { transform: translate(23px, 2px) rotate(-10deg); }
+  50% { transform: translate(25px, 0) rotate(-16deg); }
+  64% { transform: translate(38px, -2px); }
+  79% { transform: translate(17px, -2px); }
+}
+
+@keyframes film-step-two {
+  0%, 100% { transform: translate(0, 0); }
+  18% { transform: translate(26px, 0); }
+  29% { transform: translate(39px, 4px) rotate(-18deg); }
+  40% { transform: translate(30px, 1px); }
+  50% { transform: translate(45px, -6px) rotate(11deg); }
+  64% { transform: translate(28px, 2px); }
+  79% { transform: translate(12px, -2px); }
+}
+
+@keyframes film-jab {
+  0%, 18%, 40%, 100% { transform: rotate(0) scaleX(1); }
+  29% { transform: rotate(12deg) scaleX(1.75); }
+}
+
+@keyframes film-flash {
+  0%, 26%, 32%, 47%, 54%, 100% { opacity: 0; }
+  29%, 50% { opacity: .8; }
+}
+
+@media (max-width: 780px) {
+  .films {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trackerShot {
+  margin: 1rem 0 0;
+}
+
+.trackerShot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+}
+
+.trackerShot figcaption {
+  margin-top: .45rem;
+  color: var(--soft-ink);
+  font-size: .8rem;
+}

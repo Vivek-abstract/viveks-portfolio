@@ -1,35 +1,164 @@
-import HeroSection from '../components/HeroSection/HeroSection';
-import Experience from '../components/Experience/Experience';
+import Image from 'next/image';
 import Link from 'next/link';
 import { getAllPosts } from '../lib/contentful';
-import BlogDetails from '../components/BlogDetails/BlogDetails';
-import ScrollReveal from '../components/ScrollReveal/ScrollReveal';
+import { formatDate } from '../lib/utils';
+import Harbour from './Harbour';
+import ListeningRoom from './ListeningRoom';
+import FilmShelf from './FilmShelf';
+import styles from './personal.module.css';
 
 export default async function HomePage() {
-  const posts = await getAllPosts();
-  const latestPosts = posts.slice(0, 3);
+  const posts = (await getAllPosts()).slice(0, 3);
 
   return (
-    <>
-      <HeroSection />
-      <Experience />
-      {latestPosts.length > 0 && (
-        <section className="section">
-          <div className="container" style={{ maxWidth: '900px' }}>
-            <ScrollReveal animation="fade-up">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '32px' }}>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 800, margin: 0 }}>Latest Posts</h2>
-                <Link href="/blog" style={{ fontWeight: 600 }}>View all &rarr;</Link>
+    <div className={styles.page}>
+      <div className={styles.shell}>
+        <section className={styles.hero} aria-labelledby="intro">
+          <div>
+            <p className={styles.label}>Navi Mumbai, India</p>
+            <h1 id="intro">Hey, I’m<br />{' '}<em>Vivek.</em></h1>
+            <p className={styles.intro}>
+              I build .NET apps for work and smaller things for myself.
+              Here are a few of those things, plus notes on what I’ve learned along the way.
+            </p>
+            <div className={styles.links}>
+              <a href="#projects">Explore my projects <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <Harbour />
+        </section>
+
+        <section id="projects" className={styles.section} aria-labelledby="projects-title">
+          <p className={styles.label}>01 / From my GitHub</p>
+          <h2 id="projects-title">Things I’ve made</h2>
+          <div className={styles.projects}>
+            <article className={styles.project}>
+              <div>
+                <p className={styles.label}>01 / Windows · C#</p>
+                <h3>PC Part Price Tracker</h3>
+                <p className={styles.projectDescription}>
+                  I built this when GPU prices were sky-high. I wanted one place to check
+                  which cards were in stock, compare prices across Indian retailers, and
+                  see when a card dropped below what I was willing to pay.
+                </p>
+                <a className={styles.sourceLink} href="https://github.com/Vivek-abstract/PCPartPriceTracker">
+                  View the tracker on GitHub <span aria-hidden="true">↗</span>
+                </a>
               </div>
-            </ScrollReveal>
-            {latestPosts.map((post, i) => (
-              <ScrollReveal key={post.id} animation="fade-up" stagger={150} staggerIndex={i}>
-                <BlogDetails post={post} />
-              </ScrollReveal>
-            ))}
+              <div className={styles.trackerDetail}>
+                <p className={styles.label}>How the tracker works</p>
+                <ol>
+                  <li>Add a product link and set your target price.</li>
+                  <li>The app refreshes the listing every minute.</li>
+                  <li>The price turns green when the part is in stock and below your target.</li>
+                </ol>
+                <figure className={styles.trackerShot}>
+                  <a href="https://user-images.githubusercontent.com/9103920/121368350-a3f54f80-c958-11eb-90e8-f3f9a275bdf8.png">
+                    <Image
+                      src="https://user-images.githubusercontent.com/9103920/121368350-a3f54f80-c958-11eb-90e8-f3f9a275bdf8.png"
+                      alt="Original PC Part Price Tracker window with saved listings"
+                      width={850}
+                      height={500}
+                      loading="lazy"
+                      unoptimized
+                    />
+                  </a>
+                  <figcaption>Original app screenshot from the GitHub README</figcaption>
+                </figure>
+              </div>
+            </article>
+
+            <article className={styles.project}>
+              <div>
+                <p className={styles.label}>02 / Android · Kotlin</p>
+                <h3>Dracula Tic-Tac-Toe</h3>
+                <p className={styles.projectDescription}>
+                  You play the computer on a dark board with pink Xs and cyan Os.
+                  I built it in Kotlin with Android Studio.
+                </p>
+                <a className={styles.sourceLink} href="https://github.com/Vivek-abstract/Dracula-Tic-Tac-Toe">
+                  View the game on GitHub <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <div className={styles.screenshots}>
+                <figure>
+                  <a href="/projects/dracula-new-game.png" aria-label="Open full-size screenshot of a new game">
+                    <Image src="/projects/dracula-new-game.png" alt="Empty tic-tac-toe board with a pink New Game button" width={720} height={1280} loading="lazy" />
+                  </a>
+                  <figcaption>New game</figcaption>
+                </figure>
+                <figure>
+                  <a href="/projects/dracula-draw.png" aria-label="Open full-size screenshot of a drawn game">
+                    <Image src="/projects/dracula-draw.png" alt="A full board of pink Xs and cyan Os with the message Game Drawn" width={720} height={1280} loading="lazy" />
+                  </a>
+                  <figcaption>Draw against the computer</figcaption>
+                </figure>
+              </div>
+            </article>
           </div>
         </section>
-      )}
-    </>
+
+        {posts.length > 0 && (
+          <section className={styles.section} aria-labelledby="writing-title">
+            <p className={styles.label}>02 / Notes from work</p>
+            <h2 id="writing-title">Writing</h2>
+            <p className={styles.intro}>I write about problems I’ve had to solve, starting with a .NET API that kept timing out under load.</p>
+            <ul className={styles.posts}>
+              {posts.map((post) => (
+                <li key={post.slug}>
+                  <Link href={`/blog/${post.slug}/`} className={styles.post}>
+                    <div>
+                      <p className={styles.label}>{formatDate(post.createdDate)}</p>
+                      <h3>{post.title}</h3>
+                      {post.preview && <p>{post.preview}</p>}
+                    </div>
+                    <span className={styles.arrow} aria-hidden="true">↗</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <section className={`${styles.section} ${styles.personal}`} aria-labelledby="personal-title">
+          <Image src="/vivek_profile_photo.jpg" alt="Vivek Gawande" width={224} height={224} className={styles.portrait} />
+          <div>
+            <p className={styles.label}>Off the clock</p>
+            <h2 id="personal-title">A bit about me</h2>
+            <p className={styles.intro}>
+              I studied computer engineering at Mumbai University. Away from work, it’s
+              usually chess, music, or a movie.
+            </p>
+            <div className={styles.links}>
+              <Link href="/about/">More about me <span aria-hidden="true">↗</span></Link>
+              <a href="/resume.pdf">Résumé (PDF)</a>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.section} aria-labelledby="chess-title">
+          <div className={styles.chess}>
+            <div>
+              <p className={styles.label}>Off the clock / Chess</p>
+              <h2 id="chess-title">I crossed 2200 in blitz.</h2>
+              <p className={styles.intro}>
+                I love playing chess. I play as HutchPlaysChess on Chess.com,
+                and recently hit a personal best of 2203 in blitz.
+              </p>
+              <a className={styles.sourceLink} href="https://www.chess.com/member/hutchplayschess/stats/blitz">
+                HutchPlaysChess on Chess.com <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <figure>
+              <Image src="/chess-blitz-milestone.jpg" alt="Chess.com blitz rating chart showing a climb past 2200 and a high of 2203" width={710} height={350} loading="lazy" />
+              <figcaption>My blitz rating on Chess.com, November 2026</figcaption>
+            </figure>
+          </div>
+        </section>
+        <ListeningRoom />
+
+        <FilmShelf />
+      </div>
+    </div>
   );
 }
