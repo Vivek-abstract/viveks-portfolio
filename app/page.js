@@ -5,27 +5,6 @@ import { formatDate } from '../lib/utils';
 import Harbour from './Harbour';
 import styles from './personal.module.css';
 
-const projects = [
-  {
-    title: 'PC Part Price Tracker',
-    kind: '01 / Windows · C#',
-    description: 'A price alert for the next PC build. Pick a part from an Indian retailer, set your target, and the app flags it once it’s in stock below that price.',
-    href: 'https://github.com/Vivek-abstract/PCPartPriceTracker',
-  },
-  {
-    title: 'Dracula Tic-Tac-Toe',
-    kind: '02 / Android · Kotlin',
-    description: 'A dark-themed tic-tac-toe game where you play against the computer. One of my experiments with building for Android.',
-    href: 'https://github.com/Vivek-abstract/Dracula-Tic-Tac-Toe',
-  },
-  {
-    title: 'ProjectMU',
-    kind: '03 / Web app',
-    description: 'A study planner for engineering exams. It gives students a place to start by organizing questions by importance for each subject.',
-    href: 'https://github.com/Vivek-abstract/ProjectMU',
-  },
-];
-
 export default async function HomePage() {
   const posts = (await getAllPosts()).slice(0, 3);
 
@@ -51,16 +30,56 @@ export default async function HomePage() {
           <p className={styles.label}>01 / From my GitHub</p>
           <h2 id="projects-title">Things I’ve made</h2>
           <div className={styles.projects}>
-            {projects.map((project) => (
-              <article key={project.href} className={styles.project}>
-                <a href={project.href} className={styles.projectLink}>
-                  <p className={styles.label}>{project.kind}</p>
-                  <h3>{project.title}</h3>
-                  <p className={styles.projectDescription}>{project.description}</p>
-                  <span className={styles.sourceLink}>View source <span aria-hidden="true">↗</span></span>
+            <article className={styles.project}>
+              <div>
+                <p className={styles.label}>01 / Windows · C#</p>
+                <h3>PC Part Price Tracker</h3>
+                <p className={styles.projectDescription}>
+                  I built this for the part of a PC build that happens before you buy anything.
+                  Pick a listing from an Indian PC retailer, set the price you want to pay,
+                  and the app checks the listing for you.
+                </p>
+                <a className={styles.sourceLink} href="https://github.com/Vivek-abstract/PCPartPriceTracker">
+                  View the tracker on GitHub <span aria-hidden="true">↗</span>
                 </a>
-              </article>
-            ))}
+              </div>
+              <div className={styles.trackerDetail}>
+                <p className={styles.label}>How the tracker works</p>
+                <ol>
+                  <li>Add a product link and set your target price.</li>
+                  <li>The app refreshes the listing every minute.</li>
+                  <li>The price turns green when the part is in stock and below your target.</li>
+                </ol>
+              </div>
+            </article>
+
+            <article className={styles.project}>
+              <div>
+                <p className={styles.label}>02 / Android · Kotlin</p>
+                <h3>Dracula Tic-Tac-Toe</h3>
+                <p className={styles.projectDescription}>
+                  You play the computer on a dark board with pink Xs and cyan Os.
+                  I built it in Kotlin with Android Studio.
+                </p>
+                <a className={styles.sourceLink} href="https://github.com/Vivek-abstract/Dracula-Tic-Tac-Toe">
+                  View the game on GitHub <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <div className={styles.screenshots}>
+                <figure>
+                  <a href="/projects/dracula-new-game.png" aria-label="Open full-size screenshot of a new game">
+                    <Image src="/projects/dracula-new-game.png" alt="Empty tic-tac-toe board with a pink New Game button" width={720} height={1280} loading="lazy" />
+                  </a>
+                  <figcaption>New game</figcaption>
+                </figure>
+                <figure>
+                  <a href="/projects/dracula-draw.png" aria-label="Open full-size screenshot of a drawn game">
+                    <Image src="/projects/dracula-draw.png" alt="A full board of pink Xs and cyan Os with the message Game Drawn" width={720} height={1280} loading="lazy" />
+                  </a>
+                  <figcaption>Draw against the computer</figcaption>
+                </figure>
+              </div>
+            </article>
           </div>
         </section>
 

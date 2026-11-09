@@ -158,36 +158,75 @@
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
   margin-top: 2rem;
 }
 
 .project {
-  display: flex;
-  min-width: 0;
-}
-
-.page .projectLink {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: clamp(1.2rem, 2.6vw, 2rem);
-  color: var(--ink);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(1.25rem, 4vw, 3rem);
   background: var(--card-bg);
   border: 1px solid var(--rule);
   border-top: 3px solid var(--signal);
-  text-decoration: none;
-  transition: transform .22s ease, box-shadow .22s ease;
 }
 
-.projectLink:hover,
-.projectLink:focus-visible {
-  transform: translateY(-.3rem);
-  box-shadow: .35rem .35rem 0 var(--rule);
+.project h3 {
+  margin: 0 0 .75rem;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
 }
 
-.projectLink h3,
+.trackerDetail {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--rule);
+  background: var(--bg-alt);
+}
+
+.trackerDetail ol {
+  margin: 0;
+  padding-inline-start: 1.15rem;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.trackerDetail li + li {
+  margin-top: .5rem;
+}
+
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.55rem, 2vw, 1.25rem);
+  max-width: 26rem;
+}
+
+.screenshots figure {
+  margin: 0;
+}
+
+.screenshots a {
+  display: block;
+  border-radius: .45rem;
+}
+
+.screenshots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: inherit;
+}
+
+.screenshots figcaption {
+  margin-top: .45rem;
+  color: var(--soft-ink);
+  font-size: .8rem;
+}
+
 .post h3 {
   margin: 0 0 .75rem;
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -203,9 +242,6 @@
 }
 
 .sourceLink {
-  align-self: flex-start;
-  margin-top: auto;
-  padding-top: .75rem;
   color: var(--signal);
   font-size: .9rem;
   font-weight: 650;
@@ -281,7 +317,7 @@
   }
 
   .hero,
-  .projects {
+  .project {
     grid-template-columns: 1fr;
   }
 
