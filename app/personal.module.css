@@ -383,42 +383,25 @@
 }
 
 .trackList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
   margin: 1.5rem 0 0;
   padding: 0;
-  max-width: 55rem;
   list-style: none;
-  border: 1px solid var(--rule);
 }
 
-.trackList li + li {
-  border-top: 1px solid var(--rule);
-}
-
-.trackList a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .75rem;
-  padding: .75rem 1rem;
-  color: var(--ink);
-  background: var(--card-bg);
-  text-decoration: none;
-}
-
-.trackList a:hover,
-.trackList a:focus-visible {
-  background: var(--bg-alt);
-}
-
-.trackList small {
+.trackList iframe {
   display: block;
-  color: var(--soft-ink);
+  width: 100%;
+  border: 0;
+  border-radius: .65rem;
 }
 
-.trackAction {
-  color: var(--signal);
-  text-align: right;
-  font-size: .82rem;
+@media (max-width: 780px) {
+  .trackList {
+    grid-template-columns: 1fr;
+  }
 }
 
 .films {
