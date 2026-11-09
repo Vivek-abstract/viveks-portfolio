@@ -4,6 +4,7 @@ import { getAllPosts } from '../lib/contentful';
 import { formatDate } from '../lib/utils';
 import Harbour from './Harbour';
 import ListeningRoom from './ListeningRoom';
+import FilmShelf from './FilmShelf';
 import styles from './personal.module.css';
 
 export default async function HomePage() {
@@ -156,15 +157,7 @@ export default async function HomePage() {
         </section>
         <ListeningRoom />
 
-        <section className={styles.section} aria-labelledby="film-title">
-          <p className={styles.label}>Off the clock / Film</p>
-          <h2 id="film-title">Favourite movies</h2>
-          <ul className={styles.films}>
-            <li><span aria-hidden="true">01</span>Inception</li>
-            <li><span aria-hidden="true">02</span>Interstellar</li>
-            <li><span aria-hidden="true">03</span>Fight Club</li>
-          </ul>
-        </section>
+        <FilmShelf />
       </div>
     </div>
   );
