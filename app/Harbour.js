@@ -45,9 +45,11 @@ export default function Harbour() {
         </defs>
 
         <path d="M0 0h800v450H0z" fill="url(#harbour-sky)" />
-        <circle cx="550" cy="163" r="93" fill="#db815e" opacity=".18" />
-        <circle cx="550" cy="163" r="70" fill="#ffc18e" />
-        <path d="M491 196h119m-110 11h100m-86 11h72" stroke="#9b4f4c" strokeWidth="2" opacity=".42" />
+        <g transform="translate(92 0)">
+          <circle cx="550" cy="163" r="93" fill="#db815e" opacity=".18" />
+          <circle cx="550" cy="163" r="70" fill="#ffc18e" />
+          <path d="M491 196h119m-110 11h100m-86 11h72" stroke="#9b4f4c" strokeWidth="2" opacity=".42" />
+        </g>
         <path d="M0 0h800v450H0z" fill="url(#harbour-grain)" />
         <g className={styles.gulls} fill="none" stroke="#ffd6b0" strokeWidth="1.7" strokeLinecap="round">
           <path d="M467 88q8-6 16 2 6-8 15-6m-52 15q6-4 11 1 4-6 11-4m48-23q5-4 10 1 5-6 11-4" />
@@ -85,7 +87,7 @@ export default function Harbour() {
 
         <path d="M0 295q109-7 202 0t221 0 201-1 176 1v155H0Z" fill="url(#harbour-water)" />
         <g className={styles.ripples} stroke="#f6ad83" strokeLinecap="round" fill="none">
-          <path d="M479 307h121m-142 10h158m-117 11h74m-96 12h125m-81 11h111m-164 14h76m-37 16h103m-72 15h45" opacity=".59" />
+          <path transform="translate(92 0)" d="M479 307h121m-142 10h158m-117 11h74m-96 12h125m-81 11h111m-164 14h76m-37 16h103m-72 15h45" opacity=".59" />
           <path d="M13 314q38-4 86 0m-45 29q47-5 106-2m18-29h110m-141 54q65-4 131-1m-257 34q94-7 161-1m132-65h82m-96 79q78-4 174 2m159-94h142m-122 42q65-5 111-1m-122 50q86-5 157 0" opacity=".38" />
           <path d="M15 427q65-5 134-2m29 9q71-6 153-3m205 2q111-5 204 0" opacity=".28" />
         </g>
