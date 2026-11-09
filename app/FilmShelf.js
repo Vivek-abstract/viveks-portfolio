@@ -65,6 +65,8 @@ export default function FilmShelf() {
     }
 
     for (const frame of frames) paint(frame, 0);
+    if (!('IntersectionObserver' in window)) return;
+
     const observer = new IntersectionObserver((entries) => {
       for (const { target, isIntersecting } of entries) {
         if (isIntersecting) visible.add(target);
