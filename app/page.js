@@ -33,9 +33,9 @@ export default async function HomePage() {
     <div className={styles.page}>
       <div className={styles.shell}>
         <section className={styles.hero} aria-labelledby="intro">
-          <div className={styles.heroCopy}>
+          <div>
             <p className={styles.label}>Navi Mumbai, India</p>
-            <h1 id="intro">Hey, I’m<br /><em>Vivek.</em></h1>
+            <h1 id="intro">Hey, I’m<br />{' '}<em>Vivek.</em></h1>
             <p className={styles.intro}>
               I build .NET apps for work and smaller things for myself.
               Here are a few of those things, plus notes on what I’ve learned along the way.
