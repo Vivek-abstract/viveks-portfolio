@@ -1,11 +1,9 @@
 import styles from './personal.module.css';
 
 const tracks = [
-  { title: 'Ran To Atlanta', artist: 'Drake, Future & Molly Santana', spotify: 'album/0krqtklKYf0tyV3mw8AYqo' },
-  { title: 'Do Not Disturb', artist: 'Drake', spotify: 'track/2KvHC9z14GSl4YpkNMX384' },
   { title: 'When To Say When', artist: 'Drake', spotify: 'track/5TCBWmEBrin7etRa4Lswr1' },
-  { title: 'Akatsuki', artist: 'Seedhe Maut & Raga', spotify: 'track/7JGhDylZMLMmboLrnmJZbt' },
-  { title: 'Eshay', artist: 'Gucci Dassy', spotify: 'track/3mDL5BWuaVwXFAhZMWp88E' },
+  { title: 'Everyday Hustle', artist: 'Future, Metro Boomin & Rick Ross', spotify: 'track/4eRqmUWBmEdnVEEDHu765H' },
+  { title: 'People Get Up And Drive Your Funky Soul', artist: 'James Brown', spotify: 'track/7FqcsBx3azfOg1gAJkAXje' },
 ];
 
 export default function ListeningRoom() {
@@ -13,10 +11,6 @@ export default function ListeningRoom() {
     <section className={styles.section} aria-labelledby="music-title">
       <p className={styles.label}>Off the clock / Music</p>
       <h2 id="music-title">On repeat</h2>
-      <p className={styles.intro}>
-        Drake, J. Cole, The Weeknd, Seedhe Maut and Future topped my recap.
-        Here are the five tracks I played most.
-      </p>
       <ul className={styles.trackList} aria-label="Spotify players">
         {tracks.map(({ title, artist, spotify }) => (
           <li key={spotify}>
