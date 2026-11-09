@@ -2,22 +2,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getAllPosts } from '../lib/contentful';
 import { formatDate } from '../lib/utils';
+import Harbour from './Harbour';
 import styles from './personal.module.css';
 
 const projects = [
   {
     title: 'PC Part Price Tracker',
-    kind: 'Windows app',
-    description: 'I made a little Windows app for keeping an eye on PC parts across Indian retailers. Set the price you want to pay and it flags a part when it’s in stock below that price.',
+    kind: '01 / Windows · C#',
+    description: 'A price alert for the next PC build. Pick a part from an Indian retailer, set your target, and the app flags it once it’s in stock below that price.',
     href: 'https://github.com/Vivek-abstract/PCPartPriceTracker',
-    style: 'tracker',
   },
   {
     title: 'Dracula Tic-Tac-Toe',
-    kind: 'Android game',
-    description: 'A dark-themed version of tic-tac-toe I built in Kotlin. It’s you against the computer.',
+    kind: '02 / Android · Kotlin',
+    description: 'A dark-themed tic-tac-toe game where you play against the computer. One of my experiments with building for Android.',
     href: 'https://github.com/Vivek-abstract/Dracula-Tic-Tac-Toe',
-    style: 'game',
+  },
+  {
+    title: 'ProjectMU',
+    kind: '03 / Web app',
+    description: 'A study planner for engineering exams. It gives students a place to start by organizing questions by importance for each subject.',
+    href: 'https://github.com/Vivek-abstract/ProjectMU',
   },
 ];
 
@@ -28,58 +33,32 @@ export default async function HomePage() {
     <div className={styles.page}>
       <div className={styles.shell}>
         <section className={styles.hero} aria-labelledby="intro">
-          <div>
+          <div className={styles.heroCopy}>
             <p className={styles.label}>Navi Mumbai, India</p>
-            <h1 id="intro">Hey, I’m<br />Vivek Gawande.</h1>
+            <h1 id="intro">Hey, I’m<br /><em>Vivek.</em></h1>
             <p className={styles.intro}>
-              I’m a software engineer. I work on .NET apps by day and sometimes
-              make little apps of my own. I’m also into chess, movies, and music.
+              I build .NET apps for work and smaller things for myself.
+              Here are a few of those things, plus notes on what I’ve learned along the way.
             </p>
             <div className={styles.links}>
-              <a href="#projects">Things I’ve made <span aria-hidden="true">↓</span></a>
-              <Link href="/about/">A bit about me <span aria-hidden="true">↗</span></Link>
+              <a href="#projects">Explore my projects <span aria-hidden="true">↓</span></a>
             </div>
           </div>
-          <Image
-            src="/vivek_profile_photo.jpg"
-            alt="Vivek Gawande"
-            width={320}
-            height={320}
-            sizes="(max-width: 600px) 112px, 30vw"
-            className={styles.portrait}
-            priority
-          />
+          <Harbour />
         </section>
 
         <section id="projects" className={styles.section} aria-labelledby="projects-title">
+          <p className={styles.label}>01 / From my GitHub</p>
           <h2 id="projects-title">Things I’ve made</h2>
           <div className={styles.projects}>
             {projects.map((project) => (
-              <article key={project.href} className={`${styles.project} ${project.style === 'game' ? styles.game : ''}`}>
-                <div className={styles.projectArt} aria-hidden="true">
-                  {project.style === 'tracker' ? (
-                    <svg viewBox="0 0 140 76" fill="none">
-                      <path d="M6 56h128M6 36h128M6 16h128" stroke="currentColor" opacity=".22" />
-                      <path d="m8 24 23 8 19-10 20 20 24-9 15 17 21 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                      <circle cx="130" cy="57" r="5" fill="currentColor" />
-                    </svg>
-                  ) : (
-                    <svg viewBox="0 0 140 76" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                      <path d="M58 5v66M82 5v66M34 27h72M34 49h72" opacity=".45" />
-                      <path d="m40 10 12 12m0-12L40 22m24 10 12 12m0-12L64 44m24 10 12 12m0-12L88 66" />
-                      <circle cx="94" cy="16" r="6" />
-                      <circle cx="46" cy="60" r="6" />
-                    </svg>
-                  )}
-                </div>
-                <div className={styles.projectBody}>
+              <article key={project.href} className={styles.project}>
+                <a href={project.href} className={styles.projectLink}>
                   <p className={styles.label}>{project.kind}</p>
                   <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <a href={project.href} aria-label={`View ${project.title} on GitHub`}>
-                    View on GitHub <span aria-hidden="true">↗</span>
-                  </a>
-                </div>
+                  <p className={styles.projectDescription}>{project.description}</p>
+                  <span className={styles.sourceLink}>View source <span aria-hidden="true">↗</span></span>
+                </a>
               </article>
             ))}
           </div>
@@ -87,7 +66,9 @@ export default async function HomePage() {
 
         {posts.length > 0 && (
           <section className={styles.section} aria-labelledby="writing-title">
+            <p className={styles.label}>02 / Notes from work</p>
             <h2 id="writing-title">Writing</h2>
+            <p className={styles.intro}>I write about problems I’ve had to solve, starting with a .NET API that kept timing out under load.</p>
             <ul className={styles.posts}>
               {posts.map((post) => (
                 <li key={post.slug}>
@@ -97,13 +78,29 @@ export default async function HomePage() {
                       <h3>{post.title}</h3>
                       {post.preview && <p>{post.preview}</p>}
                     </div>
-                    <span aria-hidden="true">↗</span>
+                    <span className={styles.arrow} aria-hidden="true">↗</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </section>
         )}
+
+        <section className={`${styles.section} ${styles.personal}`} aria-labelledby="personal-title">
+          <Image src="/vivek_profile_photo.jpg" alt="Vivek Gawande" width={224} height={224} className={styles.portrait} />
+          <div>
+            <p className={styles.label}>Off the clock</p>
+            <h2 id="personal-title">A bit about me</h2>
+            <p className={styles.intro}>
+              I studied computer engineering at Mumbai University. When I’m away from a code editor,
+              I’m usually up for a game of chess or a good movie.
+            </p>
+            <div className={styles.links}>
+              <Link href="/about/">More about me <span aria-hidden="true">↗</span></Link>
+              <a href="/resume.pdf">Résumé (PDF)</a>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
