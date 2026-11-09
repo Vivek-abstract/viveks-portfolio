@@ -1,7 +1,6 @@
 .footer {
   border-top: 1px solid var(--border);
   padding: 48px 0;
-  margin-top: 40px;
   position: relative;
 }
 
@@ -21,7 +20,8 @@
 .links {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 14px 32px;
   margin-bottom: 20px;
 }
 
